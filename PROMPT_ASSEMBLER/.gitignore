@@ -1,0 +1,9 @@
+*
+!.gitignore
+!*.cpp
+!*.h
+!*.pro
+!/prompt_assembler
+!/prompt_assembler/*.pro
+moc_*.*
+qrc_*.*
