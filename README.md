@@ -26,4 +26,4 @@ apps/PROMPT_ASSEMBLER/prompt_assembler/prompt_assembler.pro
     └── ...
 ```
 
-[test EXAMPLE_001](https://ta2la.github.io/docs/)
+[test EXAMPLE_001](https://ta2la.github.io/docs//PROMPT_ASSEMBLER/001_example/001_example.html)
