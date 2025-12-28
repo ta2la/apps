@@ -27,5 +27,5 @@ apps/PROMPT_ASSEMBLER/prompt_assembler/prompt_assembler.pro
 ```
 The basic functionality is to integrate files of your choice in single file. The example of the file is here
 
-
-[test EXAMPLE_001](ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/001_example.html)
+           
+[test EXAMPLE_001](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/001_example.html)
