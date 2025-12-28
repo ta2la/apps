@@ -5,5 +5,7 @@
 !/docs/
 !/docs/*.*
 !/docs/PROMPT_ASSEMBLER/
+!/docs/PROMPT_ASSEMBLER/images/
+!/docs/PROMPT_ASSEMBLER/images/*.*
 !/docs/PROMPT_ASSEMBLER/001_example/
 !/docs/PROMPT_ASSEMBLER/001_example/*.*
