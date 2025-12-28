@@ -6,9 +6,5 @@
 !/prompt_assembler/
 !/prompt_assembler/*.pro
 
-!/docs/
-!/docs/001_example/
-!/docs/001_example/*.*
-
 moc_*.*
 qrc_*.*
