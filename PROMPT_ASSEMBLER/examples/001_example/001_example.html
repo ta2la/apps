@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Prompt Generator – First Self-Generated Code</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .md {
+      max-width: 1000px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .prompt {
+      background: #ecdbe4;
+      border-left: 8px solid #c44269;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+
+    .answer {
+      background: #d4d0d0;
+      border-left: 8px solid #69668d;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+
+    pre {
+      margin: 12px 0;
+      padding: 12px;
+      overflow-x: auto;
+      background: transparent;
+      border-left: 1px solid #aaa;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #111;
+    }
+
+    a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="md">
+
+    <p>
+      <b>First documented attempts to use prompt generator to generate its own code.</b>
+      The generated code commit is here:
+      <a href="https://github.com/ta2la/base2/commit/7f55a0d9895a5552e91b21ef4386afc926c3a867">COMMIT</a>
+    </p>
+
+    <div class="prompt">
+      <p>
+        <b>PPROMPT:</b><br>
+        <a href='./base.h'><b>[PROMPT ASSEMBLY]</b></a><br>
+        +<br>
+        So now we will create a class into which we will put Cmds_code_analyzer::dirs_<br>
+        but as a class, so the item that will contain a QString will be named AnalyzerModule<br>
+        the class with the collection will then be AnalyzerModuleCol<br>
+        leave dirs_ for now, I will swap it later
+      </p>
+
+      <p><b>REPAIR PROMPT:</b></p>
+      <p>Please use the same style as in the other code_analyzer classes.</p>
+
+      <p><b>REPAIR PROMPT:</b></p>
+      <p>In AnalyzerModuleCol, provide a get by index; do not use iterators.</p>
+    </div>
+
+    <div class="answer">
+      <p><b>ANSWER:</b></p>
+
+      <pre><code>class AnalyzerModule
+//=============================================================================
+{
+public:
+/// @section Construction
+explicit AnalyzerModule(const QString& dirPath)
+    : dirPath_(dirPath) {}
+
+/// @section Accessors
+const QString& dirPath() const { return dirPath_; }
+
+QString moduleName() const { return QFileInfo(dirPath_).dirName(); }
+
+bool exists() const { return QDir(dirPath_).exists(); }
+
+//=============================================================================
+protected:
+/// @section Data
+QString dirPath_;
+};
+
+class AnalyzerModuleCol
+//=============================================================================
+{
+public:
+/// @section Construction
+AnalyzerModuleCol() = default;
+
+/// @section Methods
+void add(const QString& dir)
+{
+    modules_.append(AnalyzerModule(dir));
+}
+
+int count() const
+{
+    return modules_.count();
+}
+
+bool isEmpty() const
+{
+    return modules_.isEmpty();
+}
+
+const AnalyzerModule& get(int index) const
+{
+    return modules_.at(index);
+}
+
+//=============================================================================
+protected:
+/// @section Data
+QList&lt;AnalyzerModule&gt; modules_;
+};</code></pre>
+    </div>
+
+    <div class="prompt">
+      <p><b>PROMPT:</b></p>
+
+      <pre><code>class AnalyzerModule
+//=============================================================================
+{
+public:
+/// @section Construction
+explicit AnalyzerModule(const QString& dirPath)
+    : dirPath_(dirPath)
+{
+}
+
+/// @section Accessors
+const QString& dirPath() const { return dirPath_; }
+
+//=============================================================================
+protected:
+/// @section Data
+QString dirPath_;
+};
+
+class AnalyzerModuleCol
+//=============================================================================
+{
+public:
+/// @section Construction
+AnalyzerModuleCol() = default;
+
+/// @section Methods
+void add(const QString& dir)
+{
+    modules_.append(AnalyzerModule(dir));
+}
+
+int count() const
+{
+    return modules_.count();
+}
+
+const AnalyzerModule& get(int index) const
+{
+    return modules_.at(index);
+}
+
+//=============================================================================
+protected:
+/// @section Data
+QList&lt;AnalyzerModule&gt; modules_;
+};</code></pre>
+
+      <p>
+        perfecto<br>
+        Now add a method that returns a QStringList, so that we can perform a cheap substitution where, for example, …
+      </p>
+    </div>
+
+    <div class="answer">
+      <p><b>ANSWER:</b></p>
+
+      <pre><code>QStringList toStringList() const
+{
+    QStringList result;
+
+    for (int i = 0; i &lt; modules_.count(); ++i) {
+        result.append(modules_.at(i).dirPath());
+    }
+
+    return result;
+}</code></pre>
+    </div>
+
+  </div>
+
+</body>
+</html>

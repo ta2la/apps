@@ -3,7 +3,12 @@
 !*.cpp
 !*.h
 !*.pro
-!/prompt_assembler
+!/prompt_assembler/
 !/prompt_assembler/*.pro
+
+!/examples/
+!/examples/001_example/
+!/examples/001_example/*.*
+
 moc_*.*
 qrc_*.*
