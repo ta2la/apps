@@ -29,5 +29,36 @@ The basic functionality is to integrate files of your choice in single file. The
 It is assembly of this project itself.
 
 [PROMPT ASSEMBLY](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/base.h)
+
+The prompt then can be used for prompting LLM to generate new features of the code.
            
 [test EXAMPLE_001](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/001_example.html)
+
+The code generation is done by pressing **@view** button. It is hardcoded for displaying the prompt of this code itself.
+If you need other, you must replace these lines in `Cmds_code_analyzer` and recompile. Just list of modules. Searches all subdirs of each module.
+
+```
+inline static QStringList dirs_ = QStringList()
+        << "../../../base2/base/"
+        << "../../../base2/cmd_sys"
+        << "../../../base2/cmd_sys_display"
+        << "../../../base2/code_analyzer"
+        << "../../../apky/PROMPT_ASSEMBLER"
+        << "../../../base2/utility";
+```
+
+You can limit the size of output by the following directives:
+
+```
+///@view:beg
+...
+///@view:end
+
+///@view:exclude - excludes single line between beg-end
+///@view:exclude - exports single line without beg-end
+
+```
+
+**.dot** button generates .dot graph of the same code.
+
+![dot.png](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/images/dot.png)
