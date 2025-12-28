@@ -25,17 +25,22 @@ apps/PROMPT_ASSEMBLER/prompt_assembler/prompt_assembler.pro
 └── base2
     └── ...
 ```
-The basic functionality is to integrate files of your choice in single file. The example of the file is here.
-It is assembly of this project itself.
+
+Currently, it contains only the **PROMPT ASSEMBLER** application.<br>
+PROMPT ASSEMBLER scans selected source directories and extracts source files, then generates a structured output that can be used directly as a prompt for an LLM.
+
+Its primary purpose is to assemble multiple source files—selected by directory and filtering rules—into a single, coherent prompt file.
+The example output shown below is generated from this project itself:
 
 [PROMPT ASSEMBLY](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/base.h)
 
-The prompt then can be used for prompting LLM to generate new features of the code.
+The resulting prompt can be used to ask an LLM to analyze the codebase or propose new features and modifications.
            
 [test EXAMPLE_001](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/001_example/001_example.html)
 
-The code generation is done by pressing **@view** button. It is hardcoded for displaying the prompt of this code itself.
-If you need other, you must replace these lines in `Cmds_code_analyzer` and recompile. Just list of modules. Searches all subdirs of each module.
+Prompt generation is triggered by pressing the **@view** button.<br>
+At the moment, this action is hardcoded to generate a prompt for the PROMPT ASSEMBLER project itself.<br>
+To generate prompts for a different project, the directory list in Cmds_code_analyzer must be modified and the application recompiled.
 
 ```
 inline static QStringList dirs_ = QStringList()
@@ -47,7 +52,7 @@ inline static QStringList dirs_ = QStringList()
         << "../../../base2/utility";
 ```
 
-You can limit the size of output by the following directives:
+The tool supports output size control using inline view directives embedded in source files:
 
 ```
 ///@view:beg
@@ -59,6 +64,7 @@ You can limit the size of output by the following directives:
 
 ```
 
-**.dot** button generates .dot graph of the same code.
+The **.dot** button generates a Graphviz .dot file representing the same codebase structure.<br>
+This graph can be further converted to SVG for visualization.
 
 ![dot.png](https://ta2la.github.io/apps/PROMPT_ASSEMBLER/images/dot.png)
