@@ -40,6 +40,7 @@
 #include "ExerecModelProxy.h"
 #include "InteractiveOutputModel.h"
 #include "AnalyzerModule.h"
+#include "Model_tabs.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -80,16 +81,19 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("cmdline",            &Model_controls::instance());
     view->rootContext()->setContextProperty("interactiveIface",   &Interactive_uiControl::instance());
     view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::instance());
+    view->rootContext()->setContextProperty(
+        "mainTabs",
+        new Model_tabs()
+        );
 
     Q_INIT_RESOURCE(utility);
     Q_INIT_RESOURCE(cmd_sys_display);
+    Q_INIT_RESOURCE(code_analyzer);
 
     view->rootContext()->setContextProperty(
         "analyzerModules",
         &Cmds_code_analyzer::dirs_
         );
-
-
 
     UiControl::instance().setRootObject(view->rootObject());
 

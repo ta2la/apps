@@ -22,11 +22,11 @@ message(DESTDIR = $$PWD/$$SOURCEDIR)
 INCLUDEPATH += $$PWD
 
 RESOURCES += $$PWD/resources/Monitor.qrc
-#ICON      = $$PWD/images/icon.svg
 
 HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_controls.h
+HEADERS += $$PWD/Model_tabs.h
 
 SOURCES += $$PWD/Main.cpp
 SOURCES += $$PWD/Cmds_ui_model_refresh.cpp
