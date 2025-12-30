@@ -39,6 +39,7 @@
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "InteractiveOutputModel.h"
+#include "AnalyzerModule.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -70,6 +71,8 @@ int main(int argc, char *argv[]) {
     app.setWindowIcon(appIcon);
 
 //! @section View
+    qRegisterMetaType<AnalyzerModuleData>();
+
     QQuickView* view = new QQuickView();
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::instance());
@@ -81,6 +84,13 @@ int main(int argc, char *argv[]) {
     Q_INIT_RESOURCE(utility);
     Q_INIT_RESOURCE(cmd_sys_display);
 
+    view->rootContext()->setContextProperty(
+        "analyzerModules",
+        &Cmds_code_analyzer::dirs_
+        );
+
+
+
     UiControl::instance().setRootObject(view->rootObject());
 
     view->resize(700,1500);
@@ -90,6 +100,8 @@ int main(int argc, char *argv[]) {
     CmdExeRecCol::instance();
     CMD_SYS.execute("voidcmd");
     CMD_SYS.execute("change_controls start_stop");
+
+    Cmds_code_analyzer::createModel();
 
 //! @section Run
     return app.exec();
