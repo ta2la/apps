@@ -16,6 +16,8 @@ DESTDIR = $$PWD/$$SOURCEDIR
 
 message(DESTDIR = $$PWD/$$SOURCEDIR)
 
+RESOURCES += prompt_assembler.qrc
+
 # DIRECT FILES
 #######################################################################################
 
@@ -66,5 +68,7 @@ QT += quickcontrols2
 QMAKE_POST_ACTION = $$system(echo -e "\a")
 QMAKE_POST_ACTION += $$system(sleep 0.2)
 QMAKE_POST_ACTION += $$system(echo -e "\a")
+
+
 
 
