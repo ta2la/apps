@@ -55,10 +55,6 @@ for (T2LSLIB, T2LS) {
 #######################################################################################
 
 QT += widgets
-QT += websockets
-QT += positioning
-QT += sql
-
 QT += quick
 QT += quickwidgets
 QT += quickcontrols2
