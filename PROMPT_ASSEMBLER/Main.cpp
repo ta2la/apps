@@ -52,6 +52,7 @@
 using namespace std;
 
 ///@view:beg
+/// test commit - remove latter
 
 //=============================================================================
 int main(int argc, char *argv[]) {
