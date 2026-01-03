@@ -107,6 +107,7 @@ int main(int argc, char *argv[]) {
     CMD_SYS.execute("change_controls start_stop");
 
     Cmds_code_analyzer::createModel();
+    AnalyzerCode::loadDot();
 
 //! @section Run
     return app.exec();
