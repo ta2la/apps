@@ -40,7 +40,7 @@ int Cmds_ui_model_refresh::change_controls(CmdArgCol& args, QByteArray* data, co
 
     CmdArg argText = args.get(1);
 
-    Model_controls::instance().setContent(argText.value());
+    Model_controls::inst().setContent(argText.value());
 
     return 0;
 }

@@ -73,40 +73,36 @@ int main(int argc, char *argv[]) {
     app.setWindowIcon(appIcon);
 
 //! @section View
+    Q_INIT_RESOURCE(cmd_sys_display);
+    Q_INIT_RESOURCE(code_analyzer);
+    Q_INIT_RESOURCE(utility);
+
     qRegisterMetaType<AnalyzerModuleData>();
 
     QQuickView* view = new QQuickView();
+
+    view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
+    view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::inst());
+    view->rootContext()->setContextProperty("cmdline",            &Model_controls::inst());
+    view->rootContext()->setContextProperty("interactiveIface",   &Interactive_uiControl::inst());
+    view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::inst());
+    view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
+    view->rootContext()->setContextProperty("analyzerModules",    &Cmds_code_analyzer::dirs_ );
+
+    CmdExeRecCol::inst();
+
+    AnalyzerCode::loadDot();
+    Cmds_code_analyzer::createModel();
+
     view->setSource(QUrl("qrc:/GenericApp.qml"));
-    view->rootContext()->setContextProperty("qmlInterface",       &UiControl::instance());
-    view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::instance());
-    view->rootContext()->setContextProperty("cmdline",            &Model_controls::instance());
-    view->rootContext()->setContextProperty("interactiveIface",   &Interactive_uiControl::instance());
-    view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::instance());
-    view->rootContext()->setContextProperty(
-        "mainTabs",
-        new Model_tabs()
-        );
-
-    Q_INIT_RESOURCE(utility);
-    Q_INIT_RESOURCE(cmd_sys_display);
-    Q_INIT_RESOURCE(code_analyzer);
-
-    view->rootContext()->setContextProperty(
-        "analyzerModules",
-        &Cmds_code_analyzer::dirs_
-        );
-
-    UiControl::instance().setRootObject(view->rootObject());
+    UiControl::inst().setRootObject(view->rootObject());
 
     view->resize(700,1500);
     view->setPosition(450,650);
     view->show();
 
-    CmdExeRecCol::instance();
     CMD_SYS.execute("voidcmd");
     CMD_SYS.execute("change_controls start_stop");
-
-    Cmds_code_analyzer::createModel();
 
 //! @section Run
     return app.exec();

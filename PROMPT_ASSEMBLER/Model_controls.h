@@ -33,7 +33,7 @@ class Model_controls : public Model_controlsEx
 {
     Q_OBJECT
 public:
-    static Model_controls& instance() { static Model_controls i; return i; }
+    static Model_controls& inst() { static Model_controls i; return i; }
     void setContent(const QString& content)
     {
         content_ = content;
@@ -62,7 +62,7 @@ public:
         }
         if (content == "disabled") {
             m_items.append({TextType, "Disabled commands:", ""});
-            Model_filteroutCmds& model = Model_filteroutCmds::instance();
+            Model_filteroutCmds& model = Model_filteroutCmds::inst();
             for (int i = 0; i < model.cmds_.count(); i++) {
                 QString cmdi = model.cmds_[i];
                 m_items.append({ButtonType, cmdi, QString("exerec_remove_filterout_command ") + cmdi});

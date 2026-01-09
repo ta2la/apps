@@ -27,7 +27,7 @@
 
 ///@view:beg
 
-#define UI_CONTROL UiControl::instance()
+#define UI_CONTROL UiControl::inst()
 
 class Model_tabs : public QAbstractListModel {
     Q_OBJECT
