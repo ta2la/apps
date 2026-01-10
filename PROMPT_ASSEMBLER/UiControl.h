@@ -28,7 +28,7 @@
 
 ///@view:beg
 
-#define UI_CONTROL UiControl::instance()
+#define UI_CONTROL UiControl::inst()
 
 //===================================================================
 class UiControl : public QObject, public CmdExeGuard {
@@ -42,7 +42,7 @@ public:
     {
         CMD_SYS.reg(this);
     };
-    static UiControl& instance() { static UiControl i; return i; }
+    static UiControl& inst() { static UiControl i; return i; }
 //! Methods
     void     setRootObject(QObject* object) { rootObject_ = object; }
     QObject* rootObject()                   { return rootObject_; }
@@ -50,7 +50,7 @@ public:
 //<INTERNALS>
 //<OVERRIDES>
     void commandExecuted() override {
-        Model_controls::instance().setContent(Model_controls::instance().content());
+        Model_controls::inst().setContent(Model_controls::inst().content());
         if (rootObject_ == nullptr) return;
         QMetaObject::invokeMethod(rootObject_, "update", Qt::QueuedConnection);
     }
