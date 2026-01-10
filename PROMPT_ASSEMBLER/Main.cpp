@@ -91,8 +91,9 @@ int main(int argc, char *argv[]) {
 
     CmdExeRecCol::inst();
 
-    AnalyzerCode::loadDot();
     Cmds_code_analyzer::createModel();
+    AnalyzerCode::loadDot();
+    Cmds_code_analyzer::dirs_.loadFilesModels();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
