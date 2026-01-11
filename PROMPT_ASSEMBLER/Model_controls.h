@@ -45,6 +45,7 @@ public:
         if (content == "start_stop") {
             m_items.append({TextType,   "EXPORT: ", ""});
             m_items.append({ButtonType, "@view", "dir_merge_files --views"});
+            m_items.append({ButtonType, "@view bydist", "dir_merge_files --views --bydist"});
 
             m_items.append({TextType,   "NET: ", ""});
             m_items.append({ButtonType, ".dot",  "dir_export_dot"});
