@@ -96,6 +96,7 @@ int main(int argc, char *argv[]) {
     AnalyzerCode::loadDot();
     Cmds_code_analyzer::dirs_.loadFilesModels();
     AnalyzerDistCalc(Cmds_code_analyzer::sys_).calculate();
+    AnalyzerDistCalc(Cmds_code_analyzer::sys_).addObservers();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
