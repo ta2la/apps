@@ -41,6 +41,7 @@
 #include "InteractiveOutputModel.h"
 #include "AnalyzerModule.h"
 #include "Model_tabs.h"
+#include "AnalyzerDistCalc.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -94,6 +95,7 @@ int main(int argc, char *argv[]) {
     Cmds_code_analyzer::createModel();
     AnalyzerCode::loadDot();
     Cmds_code_analyzer::dirs_.loadFilesModels();
+    AnalyzerDistCalc(Cmds_code_analyzer::sys_).calculate();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
