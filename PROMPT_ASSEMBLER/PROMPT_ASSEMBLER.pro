@@ -37,6 +37,7 @@ T2LS += code_analyzer
 T2LS += cmd_sys_display
 T2LS += cmd_sys
 T2LS += utility
+T2LS += object_registry
 T2LS += base
 
 defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT

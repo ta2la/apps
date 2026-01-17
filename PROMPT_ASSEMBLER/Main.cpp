@@ -42,6 +42,7 @@
 #include "AnalyzerModule.h"
 #include "Model_tabs.h"
 #include "AnalyzerDistCalc.h"
+#include "Cmds_oreg_test.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -66,6 +67,7 @@ int main(int argc, char *argv[]) {
     Cmds_code_analyzer::registerCmds_();
     Cmds_code_analyzer_test::registerCmds_();
     Cmds_utility_system::registerCmds();
+    Cmds_oreg_test::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);

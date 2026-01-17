@@ -70,6 +70,13 @@ public:
             }
         }
         if (content == "test") {
+            m_items.append({TextType,   "TESTS OO: ",                   ""});
+            m_items.append({ButtonType, "oreg_test_setup",              "oreg_test_setup"});
+            m_items.append({ButtonType, "oreg_test_display_pool",       "oreg_test_display_pool"});
+            m_items.append({ButtonType, "oreg_test_create_container",   "oreg_test_create_container"});
+            m_items.append({ButtonType, "oreg_test_container_display",  "oreg_test_container_display"});
+            m_items.append({ButtonType, "oreg_test_pool_solve",         "oreg_test_pool_solve"});
+
             m_items.append({TextType,   "TESTS CMDS: ",             ""});
             m_items.append({ButtonType, "argcol_to_string",         "argcol_to_string"});
             m_items.append({ButtonType, "argcol_from_string",       "argcol_from_string"});
