@@ -61,18 +61,12 @@ public:
             m_items.append({ButtonType, "select_dir",   "select_dir"});
             m_items.append({ButtonType, "Bad Command",  "bad_command"});
         }
-        if (content == "disabled") {
-            m_items.append({TextType, "Disabled commands:", ""});
-            Model_filteroutCmds& model = Model_filteroutCmds::inst();
-            for (int i = 0; i < model.cmds_.count(); i++) {
-                QString cmdi = model.cmds_[i];
-                m_items.append({ButtonType, cmdi, QString("exerec_remove_filterout_command ") + cmdi});
-            }
-        }
         if (content == "test") {
             m_items.append({TextType,   "TESTS OO: ",                   ""});
-            m_items.append({ButtonType, "oreg_test_setup",              "oreg_test_setup"});
             m_items.append({ButtonType, "oreg_test_display_pool",       "oreg_test_display_pool"});
+            m_items.append({ButtonType, "oreg_list_containers",              "oreg_list_containers"});
+            m_items.append({TextType,   " --- ",                   ""});
+            m_items.append({ButtonType, "oreg_test_setup",              "oreg_test_setup"});
             m_items.append({ButtonType, "oreg_test_create_container",   "oreg_test_create_container"});
             m_items.append({ButtonType, "oreg_test_container_display",  "oreg_test_container_display"});
             m_items.append({ButtonType, "oreg_test_pool_solve",         "oreg_test_pool_solve"});
@@ -82,6 +76,14 @@ public:
             m_items.append({ButtonType, "argcol_from_string",       "argcol_from_string"});
             m_items.append({ButtonType, "argcol_from_string2",      "argcol_from_string2"});
             m_items.append({ButtonType, "argcol_from_string_alone", "argcol_from_string_alone"});
+        }
+        if (content == "disabled") {
+            m_items.append({TextType, "Disabled commands:", ""});
+            Model_filteroutCmds& model = Model_filteroutCmds::inst();
+            for (int i = 0; i < model.cmds_.count(); i++) {
+                QString cmdi = model.cmds_[i];
+                m_items.append({ButtonType, cmdi, QString("exerec_remove_filterout_command ") + cmdi});
+            }
         }
 
         endResetModel();
