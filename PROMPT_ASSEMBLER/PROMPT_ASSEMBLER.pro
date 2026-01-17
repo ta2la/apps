@@ -34,6 +34,7 @@ SOURCES += $$PWD/Main.cpp
 SOURCES += $$PWD/Cmds_ui_model_refresh.cpp
 
 T2LS += code_analyzer
+T2LS += code_data
 T2LS += cmd_sys_display
 T2LS += cmd_sys
 T2LS += utility
