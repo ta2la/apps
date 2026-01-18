@@ -54,10 +54,7 @@ public:
 
             m_items.append({TextType,   "TEST: ", ""});
             m_items.append({ButtonType, "Voidcmd",      "voidcmd"});
-            m_items.append({ButtonType, "Includes",     "dir_list_includes_test"});
-            m_items.append({ButtonType, "List Dirs",    "dir_list"});
             m_items.append({ButtonType, "Export Merge", "dir_merge_files"});
-            m_items.append({ButtonType, "pass_dir",     "pass_dir"});
             m_items.append({ButtonType, "select_dir",   "select_dir"});
             m_items.append({ButtonType, "Bad Command",  "bad_command"});
         }
