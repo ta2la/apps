@@ -55,7 +55,6 @@ public:
             m_items.append({TextType,   "NET: ", ""});
             m_items.append({ButtonType, ".dot",  "dir_export_dot"});
             m_items.append({ButtonType, "Load",  "dir_load_net"});
-            m_items.append({ButtonType, "Debug", "dir_load_net_debug"});
 
             m_items.append({TextType,   "TEST: ", ""});
             m_items.append({ButtonType, "Voidcmd",      "voidcmd"});
