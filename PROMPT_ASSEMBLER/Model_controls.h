@@ -45,6 +45,7 @@ public:
         if (content == "start_stop") {
             // ---- LOAD (projects)
             m_items.append({TextType,   "LOAD: ", ""});
+            m_items.append({ButtonType, "prompt_assembler_data", "execute_script /home/pt/KADLUB/cvz/APPS/PROMPT_ASSEMBLER/prompt_assembler/data/prompt_assembler.t2l"});
             m_items.append({ButtonType, "prompt_assembler", "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/prompt_assembler.t2l"});
             m_items.append({ButtonType, "DLUBAL",           "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/dlubal.t2l"});
 

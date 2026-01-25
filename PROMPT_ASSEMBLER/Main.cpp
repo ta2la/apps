@@ -34,14 +34,13 @@
 #include "Interactive_uiControl.h"
 #include "Interactive_uiControl.h"
 #include "Cmds_code_analyzer.h"
-#include "Cmds_code_analyzer_test.h"
+//#include "Cmds_code_analyzer_test.h"
 #include "Cmds_utility_system.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "InteractiveOutputModel.h"
-#include "AnalyzerModule.h"
+#include "AnalyzerModuleCol.h"
 #include "Model_tabs.h"
-#include "AnalyzerDistCalc.h"
 #include "Cmds_oreg_test.h"
 #include "Cmds_code_data.h"
 
@@ -66,7 +65,7 @@ int main(int argc, char *argv[]) {
     Cmds_exerec::registerCmds_();
     Cmds_test0::registerCmds_();
     Cmds_code_analyzer::registerCmds_();
-    Cmds_code_analyzer_test::registerCmds_();
+    //Cmds_code_analyzer_test::registerCmds_();
     Cmds_utility_system::registerCmds();
     Cmds_oreg_test::registerCmds();
     Cmds_code_data::registerCmds_();
@@ -92,7 +91,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("interactiveIface",   &Interactive_uiControl::inst());
     view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::inst());
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
-    view->rootContext()->setContextProperty("analyzerModules",    &Cmds_code_analyzer::dirs_ );
+    view->rootContext()->setContextProperty("analyzerModules",    &AnalyzerModuleCol::inst() );
 
     CmdExeRecCol::inst();
 
