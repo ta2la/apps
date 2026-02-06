@@ -49,6 +49,7 @@ public:
             m_items.append({ButtonType, "prompt_assembler",       "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/prompt_assembler.t2l"});
             m_items.append({ButtonType, "DLUBAL",                 "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/dlubal.t2l"});
             m_items.append({ButtonType, "DLUBAL_MAT",             "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/DLUBAL_MAT.t2l"});
+            m_items.append({ButtonType, "DLUBAL_BB",              "execute_script D:/reposBB/prompt_assembler.t2l"});
 
             m_items.append({TextType,   "EXPORT: ", ""});
             m_items.append({ButtonType, "@view", "dir_merge_files --views"});
