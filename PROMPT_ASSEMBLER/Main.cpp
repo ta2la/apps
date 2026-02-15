@@ -43,6 +43,8 @@
 #include "Model_tabs.h"
 #include "Cmds_oreg_test.h"
 #include "Cmds_code_data.h"
+#include "PromptCompModel.h"
+#include "PromptCompCol.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -65,7 +67,6 @@ int main(int argc, char *argv[]) {
     Cmds_exerec::registerCmds_();
     Cmds_test0::registerCmds_();
     Cmds_code_analyzer::registerCmds_();
-    //Cmds_code_analyzer_test::registerCmds_();
     Cmds_utility_system::registerCmds();
     Cmds_oreg_test::registerCmds();
     Cmds_code_data::registerCmds_();
@@ -92,8 +93,10 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::inst());
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("analyzerModules",    &AnalyzerModuleCol::inst() );
+    view->rootContext()->setContextProperty("promptModel",        &PromptCompModel::inst());
 
     CmdExeRecCol::inst();
+    PromptCompCol::inst();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
