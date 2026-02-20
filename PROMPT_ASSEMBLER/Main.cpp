@@ -101,8 +101,9 @@ int main(int argc, char *argv[]) {
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
 
-    view->resize(700,1500);
     view->setPosition(450,650);
+    view->resize(700,1500);
+    view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->show();
 
     CMD_SYS.execute("voidcmd");

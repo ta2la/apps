@@ -45,11 +45,14 @@ public:
         if (content == "start_stop") {
             // ---- LOAD (projects)
             m_items.append({TextType,   "LOAD: ", ""});
-            m_items.append({ButtonType, "prompt_assembler_data", "execute_script /home/pt/KADLUB/cvz/APPS/PROMPT_ASSEMBLER/prompt_assembler/data/prompt_assembler.t2l"});
-            m_items.append({ButtonType, "prompt_assembler",       "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/prompt_assembler.t2l"});
+            m_items.append({ButtonType, "prompt_assembler",       "execute_script ./../projects/prompt_assembler.t2l"});
+            m_items.append({ButtonType, "prompt_assembler_test",       "execute_script ./../projects/prompt_assembler_test.t2l"});
+            //m_items.append({ButtonType, "prompt_assembler_data", "execute_script /home/pt/KADLUB/cvz/APPS/PROMPT_ASSEMBLER/prompt_assembler/data/prompt_assembler.t2l"});
+            //m_items.append({ButtonType, "prompt_assembler",       "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/prompt_assembler.t2l"});
             m_items.append({ButtonType, "DLUBAL",                 "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/dlubal.t2l"});
             m_items.append({ButtonType, "DLUBAL_MAT",             "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/DLUBAL_MAT.t2l"});
             m_items.append({ButtonType, "DLUBAL_BB",              "execute_script D:/reposBB/prompt_assembler.t2l"});
+            m_items.append({ButtonType, "DLUBAL_CUT",             "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/DLUBAL_CUT.t2l"});
 
             m_items.append({TextType,   "EXPORT: ", ""});
             m_items.append({ButtonType, "@view", "dir_merge_files --views"});
