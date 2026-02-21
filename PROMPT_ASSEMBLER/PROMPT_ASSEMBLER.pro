@@ -70,3 +70,6 @@ QT += quickcontrols2
 #QMAKE_POST_ACTION = $$system(echo -e "\a")
 #QMAKE_POST_ACTION += $$system(sleep 0.2)
 #QMAKE_POST_ACTION += $$system(echo -e "\a")
+
+DISTFILES += \
+    projects/prompt_assembler.t2l
