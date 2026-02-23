@@ -9,3 +9,4 @@ module_add ../../../base2/cmd_sys_display --strict
 
 analyzer_set_center Cmds_code_data code_data
 
+set_output_dir ../../../APPS/PROMPT_ASSEMBLER/projects/prompt_assembler

@@ -59,6 +59,7 @@ public:
             m_items.append({TextType,   "EXPORT: ", ""});
             m_items.append({ButtonType, "@view", "dir_merge_files --views"});
             m_items.append({ButtonType, "@view bydist", "dir_merge_files --views --bydist"});
+            m_items.append({ButtonType, "PROMPT_ASSEMBLER/CLAUDE.md", "update_claude_md PROMPT_ASSEMBLER"});
 
             m_items.append({TextType,   "NET: ", ""});
             m_items.append({ButtonType, ".dot",  "dir_export_dot"});
