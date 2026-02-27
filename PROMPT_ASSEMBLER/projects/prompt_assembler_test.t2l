@@ -1,0 +1,16 @@
+module_add ../../../base2/base --notload
+module_add ../../../base2/cmd_sys --strict --subdirs
+module_add ../../../base2/cmd_sys_display --strict --subdirs
+module_add ../../../base2/object_registry --strict --subdirs
+module_add ../../../base2/utility --strict --subdirs
+module_add ../../../base2/code_data --strict --subdirs
+module_add ../../../base2/code_analyzer --strict --subdirs
+module_add ../../../APPS/PROMPT_ASSEMBLER --strict --subdirs
+
+file_add   ../../../base2/base/CmdArg.h --strict
+file_add   ../../../base2/base/CmdArgCol.h --strict
+file_add   ../../../base2/base/CmdArgCol.cpp --strict
+file_add   ../../../base2/base/CmdArgCol_parser.h --strict
+file_add   ../../../base2/base/CmdArgCol_parser.cpp --strict
+
+analyzer_set_center Cmds_code_analyzer code_analyzer

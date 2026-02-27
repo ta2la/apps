@@ -4,8 +4,8 @@ module_add ../../../base2/code_data --strict
 module_add ../../../base2/cmd_sys --strict
 module_add ../../../base2/object_registry --strict
 module_add ../../../base2/base --strict
-module_add ../../../base2/utility --strict
 module_add ../../../base2/cmd_sys_display --strict
+module_add ../../../base2/utility --strict
 
 analyzer_set_center Cmds_code_data code_data
 

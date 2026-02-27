@@ -87,6 +87,11 @@ public:
             m_items.append({ButtonType, "argcol_from_string2",      "argcol_from_string2"});
             m_items.append({ButtonType, "argcol_from_string_alone", "argcol_from_string_alone"});
         }
+        if (content == "oreg_test") {
+            m_items.append({TextType,   "OREG TEST: ",           ""});
+            m_items.append({ButtonType, "create_object_test 10", "create_object_test 10"});
+            m_items.append({ButtonType, "create_object_test 20", "create_object_test 20"});
+        }
         if (content == "disabled") {
             m_items.append({TextType, "Disabled commands:", ""});
             Model_filteroutCmds& model = Model_filteroutCmds::inst();

@@ -1,6 +1,7 @@
 TARGET = PROMPT_ASSEMBLER
 TEMPLATE = app
 CONFIG += c++17
+CONFIG += console
 #######################################################################################
 #QMAKE_CXXFLAGS += -Werror=return-type
 
@@ -39,6 +40,7 @@ T2LS += cmd_sys_display
 T2LS += cmd_sys
 T2LS += utility
 T2LS += object_registry
+T2LS += object_registry_test
 T2LS += base
 
 defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT

@@ -45,6 +45,7 @@ public:
         items_.append(Item{ "Cmdline",     "qrc:/TabCmdline.qml" });
         items_.append(Item{ "Analyzer",    "qrc:/TabAnalyzer.qml" });
         items_.append(Item{ "Prompts",     "qrc:/TabPrompts.qml" });
+        items_.append(Item{ "TestModels",  "qrc:/TestModels.qml" });
         items_.append(Item{ "About",       "qrc:/About.qml" });
     }
 

@@ -42,9 +42,14 @@
 #include "AnalyzerModuleCol.h"
 #include "Model_tabs.h"
 #include "Cmds_oreg_test.h"
+#include "Cmds_object_registry_test.h"
+#include "TestModelCol_Model.h"
+#include "TestModelItem.h"
 #include "Cmds_code_data.h"
 #include "PromptCompModel.h"
 #include "PromptCompCol.h"
+#include "CmdChannelStd.h"
+#include "MonitorSocketCmd.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -69,6 +74,7 @@ int main(int argc, char *argv[]) {
     Cmds_code_analyzer::registerCmds_();
     Cmds_utility_system::registerCmds();
     Cmds_oreg_test::registerCmds();
+    Cmds_object_registry_test::registerCmds();
     Cmds_code_data::registerCmds_();
 
 //! @section Application
@@ -81,8 +87,10 @@ int main(int argc, char *argv[]) {
     Q_INIT_RESOURCE(cmd_sys_display);
     Q_INIT_RESOURCE(code_analyzer);
     Q_INIT_RESOURCE(utility);
+    Q_INIT_RESOURCE(object_registry_test);
 
     qRegisterMetaType<AnalyzerModuleData>();
+    qRegisterMetaType<TestModelItem>();
 
     QQuickView* view = new QQuickView();
 
@@ -94,9 +102,12 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("analyzerModules",    &AnalyzerModuleCol::inst() );
     view->rootContext()->setContextProperty("promptModel",        &PromptCompModel::inst());
+    view->rootContext()->setContextProperty("testModel",          &TestModelCol_Model::inst());
 
     CmdExeRecCol::inst();
+    CmdChannelStd::inst();
     PromptCompCol::inst();
+    MonitorSocketCmd::inst();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
