@@ -3,6 +3,7 @@
 !*.cpp
 !*.h
 !*.pro
+!*.md
 !/prompt_assembler/
 !/prompt_assembler/*.pro
 !/projects/
