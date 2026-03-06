@@ -15,3 +15,25 @@ CONFIG(debug, debug|release): {
 DESTDIR = $$PWD/$$SOURCEDIR
 
 message(DESTDIR = $$PWD/$$SOURCEDIR)
+
+SOURCES += $$PWD/Main.cpp
+
+T2LS += cmd_sys
+T2LS += base
+
+defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT
+else:                    ROOT_LIB_DIR = $$PWD/../../BUILD
+
+for (T2LSLIB, T2LS) {
+win32 {
+    FC_LIB_NAME = $$ROOT_LIB_DIR/$$T2LSLIB/$$SOURCEDIR/$${T2LSLIB}.lib
+} else {
+       FC_LIB_NAME = $$ROOT_LIB_DIR/$$T2LSLIB/$$SOURCEDIR/lib$${T2LSLIB}.a
+}
+
+    INCLUDEPATH    += $$PWD/../../base2/$$T2LSLIB
+    LIBS           += $$FC_LIB_NAME
+    PRE_TARGETDEPS += $$FC_LIB_NAME
+
+    message(FC_LIB_NAME = $$FC_LIB_NAME)
+}
