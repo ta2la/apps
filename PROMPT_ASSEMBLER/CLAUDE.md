@@ -9,6 +9,7 @@
 - ../../base2/utility (static lib)
 - ../../base2/object_registry_test (static lib)
 - ../../base2/file_manager (static lib)
+- ../../base2/mcp_com (static lib)
 
 ## Command system (CLI)
 
