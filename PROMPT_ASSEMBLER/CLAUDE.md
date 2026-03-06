@@ -8,6 +8,7 @@
 - ../../base2/cmd_sys_display (static lib)
 - ../../base2/utility (static lib)
 - ../../base2/object_registry_test (static lib)
+- ../../base2/file_manager (static lib)
 
 ## Command system (CLI)
 
@@ -52,7 +53,10 @@ oreg_test_container_display <index>
 oreg_test_pool_solve
 oreg_list_containers
 
-create_object_test <value>
+create_object_test <value>...
+create_model_test <from> <to>
+delete_object_test <id>...
+display_model_col_test
 ```
 
 ## Logging (logcmd)

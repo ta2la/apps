@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
 
 //! @section Application
     QGuiApplication app(argc, argv);
-    app.setApplicationName("Tasks");
+    app.setApplicationName("PROMPT Assembler");
     QIcon appIcon("qrc:/images/icon.svg");
     app.setWindowIcon(appIcon);
 
