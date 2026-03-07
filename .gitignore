@@ -1,6 +1,7 @@
 *
 !.gitignore
 !/PROMPT_ASSEMBLER
+!/STDIO_BRIDGE
 
 !/docs/
 !/docs/*.*

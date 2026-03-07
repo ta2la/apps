@@ -9,6 +9,8 @@ SUBDIRS += ../../../base2/cmd_sys_display
 SUBDIRS += ../../../base2/utility
 SUBDIRS += ../../../base2/code_data
 SUBDIRS += ../../../base2/code_analyzer
+SUBDIRS += ../../../base2/file_manager
+SUBDIRS += ../../../base2/mcp_com
 SUBDIRS += ../../PROMPT_ASSEMBLER
 
 ../../PROMPT_ASSEMBLER.depends = \
@@ -19,4 +21,6 @@ SUBDIRS += ../../PROMPT_ASSEMBLER
     ../../../base2/cmd_sys_display \
     ../../../base2/utility \
     ../../../base2/code_data \
-    ../../../base2/code_analyzer
+    ../../../base2/code_analyzer \
+    ../../../base2/file_manager \
+    ../../../base2/mcp_com

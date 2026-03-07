@@ -20,6 +20,8 @@ CLI tool for analyzing and assembling code, visualizing module dependencies, and
   - cmd_sys_display/ - Command display utilities
   - object_registry/ - Object registry system
   - object_registry_test/ - Registry testing
+  - file_manager/ - File management system
+  - mcp_com/ - MCP communication
   - base/ - Base utilities
   - utility/ - General utilities
 
@@ -64,7 +66,10 @@ oreg_test_container_display <index>
 oreg_test_pool_solve
 oreg_list_containers
 
-create_object_test <value>
+create_object_test <value>...
+create_model_test <from> <to>
+delete_object_test <id>...
+display_model_col_test
 ```
 
 ## Build Instructions

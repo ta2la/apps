@@ -1,0 +1,11 @@
+*
+!.gitignore
+!*.cpp
+!*.h
+!*.pro
+!*.md
+!/stdio_bridge/
+!/stdio_bridge/*.pro
+
+moc_*.*
+qrc_*.*

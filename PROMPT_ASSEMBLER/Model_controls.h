@@ -88,9 +88,12 @@ public:
             m_items.append({ButtonType, "argcol_from_string_alone", "argcol_from_string_alone"});
         }
         if (content == "oreg_test") {
+            m_items.append({TextType,   "Create Model: ", ""});
+            m_items.append({EditType,   "1 100",          "create_model_test $text"});
             m_items.append({TextType,   "OREG TEST: ",           ""});
             m_items.append({ButtonType, "create_object_test 10", "create_object_test 10"});
             m_items.append({ButtonType, "create_object_test 20", "create_object_test 20"});
+            m_items.append({ButtonType, "display_model_col_test", "display_model_col_test"});
         }
         if (content == "disabled") {
             m_items.append({TextType, "Disabled commands:", ""});
