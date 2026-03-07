@@ -1,6 +1,6 @@
 #include "StdoutCmdOutput.h"
 #include "Cmds_cmd_sys.h"
-#include "StdinMonitor.h"
+#include "StdinMonitorBridge.h"
 
 #include <QCoreApplication>
 
@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication app(argc, argv);
     StdoutCmdOutput::inst();
-    StdinMonitor::init();
+    StdinMonitorBridge::init();
 
     return app.exec();
 }

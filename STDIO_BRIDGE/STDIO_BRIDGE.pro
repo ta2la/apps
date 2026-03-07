@@ -16,6 +16,7 @@ DESTDIR = $$PWD/$$SOURCEDIR
 
 message(DESTDIR = $$PWD/$$SOURCEDIR)
 
+HEADERS += $$PWD/StdinMonitorBridge.h
 SOURCES += $$PWD/Main.cpp
 
 T2LS += cmd_sys
