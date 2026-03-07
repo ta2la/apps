@@ -30,6 +30,7 @@ HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_controls.h
 HEADERS += $$PWD/Model_tabs.h
+HEADERS += $$PWD/Cmds_prompt_assembler.h
 
 SOURCES += $$PWD/Main.cpp
 SOURCES += $$PWD/Cmds_ui_model_refresh.cpp

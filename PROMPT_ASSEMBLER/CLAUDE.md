@@ -44,39 +44,41 @@ CLI tool for analyzing and assembling code, visualizing module dependencies, and
 When a new command is added, update this list accordingly.
 
 ```
-voidcmd
-logcmd <message...>
-cmds_execute_script <file>
-execute_script <file>
+voidcmd                                          - no-op
+logcmd <message...>                              - no-op, execution IS the log entry
+cmds_execute_script <file>                       - execute script (mines commands from file)
+execute_script <file>                            - execute script line by line
 
-module_add <dirPath> [--strict] [--subdirs] [--notload]
-file_add <filePath> [--strict] [--lines "from to"]...
-set_output_dir <path>
-dir_merge_files [--views] [--bydist]
-dir_export_dot
+module_add <dirPath> [--strict] [--subdirs] [--notload]  - add directory as code module
+file_add <filePath> [--strict] [--lines "from to"]...    - add file to module
+set_output_dir <path>                            - set output directory
+dir_merge_files [--views] [--bydist]             - merge module files into output
+dir_export_dot                                   - export dependency graph as .dot
 
-set_module_used <module> <0|1>
-analyzer_set_center <nodeName> <moduleName>
-update_claude_md <moduleName>
+set_module_used <module> <0|1>                   - mark module used/unused
+analyzer_set_center <nodeName> <moduleName>      - set center node, recalculate distances
+update_claude_md <moduleName>                    - generate CLAUDE.md with module info
 
-system_open_path <path>
-system_dot_to_svg <file.dot>
-file_to_clipboard <file>
+system_open_path <path>                          - open with system default app
+system_dot_to_svg <file.dot>                     - convert .dot to SVG via graphviz
+file_to_clipboard <file>                         - copy file content to clipboard
 
-ui_model_display_what <what>
-change_controls <state>
+ui_model_display_what <what>                     - toggle UI part visibility
+change_controls <state>                          - update UI control model
 
-oreg_test_setup
-oreg_test_display_pool
-oreg_test_create_container
-oreg_test_container_display <index>
-oreg_test_pool_solve
-oreg_list_containers
+oreg_test_setup                                  - initialize object registry test
+oreg_test_display_pool                           - display object pool
+oreg_test_create_container                       - create test container
+oreg_test_container_display <index>              - display container by index
+oreg_test_pool_solve                             - solve pool dependencies
+oreg_list_containers                             - list all containers
 
-create_object_test <value>...
-create_model_test <from> <to>
-delete_object_test <id>...
-display_model_col_test
+create_object_test <value>...                    - create test objects
+create_model_test <from> <to>                    - create test model with range
+delete_object_test <id>...                       - delete test objects by ID
+display_model_col_test                           - display all test models
+
+pa_exit                                          - quit application
 ```
 
 ## Build Instructions
@@ -97,4 +99,4 @@ Build order (from PROMPT_ASSEMBLER.pro):
 
 ---
 
-For general CLI architecture, code analysis guidelines, logging conventions, and coding rules, see `../../CLAUDE.md`
+For general CLI architecture, code analysis guidelines, logging conventions, coding rules, and commit message format, see `../../CLAUDE/CLAUDE.md`

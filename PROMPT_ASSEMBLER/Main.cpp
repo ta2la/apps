@@ -36,6 +36,7 @@
 #include "Cmds_code_analyzer.h"
 //#include "Cmds_code_analyzer_test.h"
 #include "Cmds_utility_system.h"
+#include "Cmds_prompt_assembler.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "InteractiveOutputModel.h"
@@ -48,8 +49,8 @@
 #include "Cmds_code_data.h"
 #include "PromptCompModel.h"
 #include "PromptCompCol.h"
-#include "CmdChannelStd.h"
-#include "MonitorSocketCmd.h"
+#include "StdoutCmdOutput.h"
+#include "StdinMonitor.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -76,6 +77,7 @@ int main(int argc, char *argv[]) {
     Cmds_oreg_test::registerCmds();
     Cmds_object_registry_test::registerCmds();
     Cmds_code_data::registerCmds_();
+    Cmds_prompt_assembler::registerCmds_();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -105,9 +107,9 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("testModel",          &TestModelCol_Model::inst());
 
     CmdExeRecCol::inst();
-    CmdChannelStd::inst();
+    StdoutCmdOutput::inst();
     PromptCompCol::inst();
-    MonitorSocketCmd::inst();
+    StdinMonitor::init();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
@@ -116,6 +118,10 @@ int main(int argc, char *argv[]) {
     view->resize(700,1500);
     view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->show();
+
+    QObject::connect(&app, &QGuiApplication::aboutToQuit, []() {
+        CMD_SYS.execute_threadSafe("pa_exit");
+    });
 
     CMD_SYS.execute_threadSafe("voidcmd");
     CMD_SYS.execute_threadSafe("change_controls start_stop");
