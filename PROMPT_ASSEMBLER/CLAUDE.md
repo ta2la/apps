@@ -3,10 +3,17 @@
 ## Overview
 CLI tool for analyzing and assembling code, visualizing module dependencies, and managing code analysis operations. Qt-based with console output. Build configuration defined in `PROMPT_ASSEMBLER.pro`.
 
+## Architecture
+- GUI application, reads commands from stdin, outputs to stdout
+- All commands go through `execute_threadSafe()` - queued via Qt event loop, processed sequentially
+- Multiple commands can be sent in succession - they queue up and execute one by one
+- No re-entrant command execution - commands from UI, scripts, and stdin all use the same queue
+- Platform-specific setup (pipes, logging) described in `CLAUDE_linux.md`
+
 ## Project Structure
 
 ### Source Modules
-- **.//** (executable) - Main application
+- **./** (executable) - Main application
   - Main.cpp - Entry point
   - Model_controls.h - Command control definitions
   - Model_tabs.h - UI tab structure
@@ -83,8 +90,10 @@ Build order (from PROMPT_ASSEMBLER.pro):
 1. Base libraries (base, utility)
 2. Infrastructure (cmd_sys, cmd_sys_display, object_registry)
 3. Code analysis (code_analyzer, code_data)
-4. Testing (object_registry_test)
-5. Main executable
+4. File management (file_manager)
+5. Communication (mcp_com)
+6. Testing (object_registry_test)
+7. Main executable
 
 ---
 

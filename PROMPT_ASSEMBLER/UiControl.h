@@ -61,7 +61,7 @@ protected:
 
 public slots:
     void callCmd(const QString& cmd) {
-        CMD_SYS.execute(cmd);
+        CMD_SYS.execute_threadSafe(cmd);
     }
 };
 

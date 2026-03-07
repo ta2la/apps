@@ -117,8 +117,8 @@ int main(int argc, char *argv[]) {
     view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->show();
 
-    CMD_SYS.execute("voidcmd");
-    CMD_SYS.execute("change_controls start_stop");
+    CMD_SYS.execute_threadSafe("voidcmd");
+    CMD_SYS.execute_threadSafe("change_controls start_stop");
 
 //! @section Run
     return app.exec();
