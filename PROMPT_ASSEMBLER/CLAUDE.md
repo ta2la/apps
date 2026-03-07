@@ -1,22 +1,34 @@
-## Source Modules
-- ./ (executable)
-- ../../base2/code_analyzer (static lib)
-- ../../base2/code_data (static lib)
-- ../../base2/cmd_sys (static lib)
-- ../../base2/object_registry (static lib)
-- ../../base2/base (static lib)
-- ../../base2/cmd_sys_display (static lib)
-- ../../base2/utility (static lib)
-- ../../base2/object_registry_test (static lib)
+# PROMPT_ASSEMBLER Project
 
-## Command system (CLI)
+## Overview
+CLI tool for analyzing and assembling code, visualizing module dependencies, and managing code analysis operations. Qt-based with console output. Build configuration defined in `PROMPT_ASSEMBLER.pro`.
 
-- Commands available via stdin, output to stdout.
-- Each command logs itself; additional info is appended to the command line in output.
-- First argument is positional (unnamed); named args use `--name value`.
-- `--name` can repeat.
-- Arg value formats: plain, `"quoted string"`, or `{"json"}`.
-- Example: `file_add path/to/file.cpp --lines 10 20`
+## Project Structure
+
+### Source Modules
+- **.//** (executable) - Main application
+  - Main.cpp - Entry point
+  - Model_controls.h - Command control definitions
+  - Model_tabs.h - UI tab structure
+  - Cmds_ui_model_refresh.h/cpp - UI model refresh command
+  - UiControl.h - UI control interface
+
+- **../../base2/** (static libraries)
+  - code_analyzer/ - Code analysis engine
+  - code_data/ - Code data structures
+  - cmd_sys/ - Command system framework
+  - cmd_sys_display/ - Command display utilities
+  - object_registry/ - Object registry system
+  - object_registry_test/ - Registry testing
+  - base/ - Base utilities
+  - utility/ - General utilities
+
+### Build System
+- Qt project file: `PROMPT_ASSEMBLER.pro`
+- Build directory: debug/ or release/ (configured via qmake)
+- Standard: C++17
+- Define: CUT_DEEP_DEPS
+- Qt Modules: widgets, quick, quickwidgets, quickcontrols2
 
 ## Commands
 
@@ -55,21 +67,20 @@ oreg_list_containers
 create_object_test <value>
 ```
 
-## Logging (logcmd)
+## Build Instructions
+```bash
+qmake PROMPT_ASSEMBLER.pro
+make
+```
 
-- `logcmd` is a no-op command — its execution IS the log entry.
-- Usage: `logcmd <message>`
-- Example: `logcmd prompt_registry_test start`
+## Key Dependencies
+Build order (from PROMPT_ASSEMBLER.pro):
+1. Base libraries (base, utility)
+2. Infrastructure (cmd_sys, cmd_sys_display, object_registry)
+3. Code analysis (code_analyzer, code_data)
+4. Testing (object_registry_test)
+5. Main executable
 
-## If asked analyze
-- Output code MUST include context: 10 lines before and 10 lines after each change.
-- Mark each change with: //## beg
-  and //## end
-- For each change, print a header in comment: // path/to/file.ext LINES: N..M
+---
 
-## Rules 
- - Prefer conservative modifications consistent with the existing code.
- - Do NOT add unnecessary validations; validations only upon explicit request.
- - Modify it so that the code is framed using //--- and write a new one - also in analyze:
-//--- původní řádky
- nove řádky
+For general CLI architecture, code analysis guidelines, logging conventions, and coding rules, see `../../CLAUDE.md`
