@@ -10,7 +10,7 @@ public:
 protected:
     void processLine(const QString& line) override {
         if (line.startsWith("./")) {
-            StdinMonitor::processLine(line);
+            StdinMonitor::processLine(line.mid(2));
         } else {
             ws_->send(line);
         }
