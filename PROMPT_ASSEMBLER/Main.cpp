@@ -53,6 +53,9 @@
 #include "StdinMonitor.h"
 #include "WsServerLite.h"
 #include "WsServerLiteGuard.h"
+#include "DirModel.h"
+#include "FileItemData.h"
+#include "Cmds_file_manager.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -80,6 +83,7 @@ int main(int argc, char *argv[]) {
     Cmds_object_registry_test::registerCmds();
     Cmds_code_data::registerCmds_();
     Cmds_prompt_assembler::registerCmds_();
+    Cmds_file_manager::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -92,9 +96,11 @@ int main(int argc, char *argv[]) {
     Q_INIT_RESOURCE(code_analyzer);
     Q_INIT_RESOURCE(utility);
     Q_INIT_RESOURCE(object_registry_test);
+    Q_INIT_RESOURCE(file_manager);
 
     qRegisterMetaType<AnalyzerModuleData>();
     qRegisterMetaType<TestModelItem>();
+    qRegisterMetaType<FileItemData>();
 
     QQuickView* view = new QQuickView();
 
@@ -107,6 +113,8 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("analyzerModules",    &AnalyzerModuleCol::inst() );
     view->rootContext()->setContextProperty("promptModel",        &PromptCompModel::inst());
     view->rootContext()->setContextProperty("testModel",          &TestModelCol_Model::inst());
+
+    view->rootContext()->setContextProperty("dirModel",            &DirModel::inst());
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
@@ -126,6 +134,7 @@ int main(int argc, char *argv[]) {
         CMD_SYS.execute_threadSafe("pa_exit");
     });
 
+    Cmds_file_manager::initDefaultDir();
     CMD_SYS.execute_threadSafe("voidcmd");
     CMD_SYS.execute_threadSafe("change_controls start_stop");
 
