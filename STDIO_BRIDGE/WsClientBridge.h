@@ -23,6 +23,8 @@ public:
 
 private:
     void connect_() {
+        if (connected_) return;
+        connected_ = true;
         connect(&socket_, &QWebSocket::connected, this, &WsClientBridge::onConnected_);
         connect(&socket_, &QWebSocket::textMessageReceived, this, &WsClientBridge::onMessage_);
         connect(&socket_, &QWebSocket::disconnected, this, &WsClientBridge::onDisconnected_);
@@ -51,5 +53,6 @@ public:
 
 private:
     quint16 port_;
+    bool connected_ = false;
     QWebSocket socket_;
 };
