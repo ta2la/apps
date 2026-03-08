@@ -38,7 +38,7 @@ SOURCES += $$PWD/Cmds_ui_model_refresh.cpp
 T2LS += code_analyzer
 T2LS += code_data
 T2LS += file_manager
-T2LS += mcp_com
+T2LS += mccp_com
 T2LS += cmd_sys_display
 T2LS += cmd_sys
 T2LS += utility
@@ -69,6 +69,7 @@ QT += widgets
 QT += quick
 QT += quickwidgets
 QT += quickcontrols2
+QT += websockets
 
 #######################################################################################
 

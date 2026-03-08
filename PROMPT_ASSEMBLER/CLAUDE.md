@@ -28,7 +28,7 @@ CLI tool for analyzing and assembling code, visualizing module dependencies, and
   - object_registry/ - Object registry system
   - object_registry_test/ - Registry testing
   - file_manager/ - File management system
-  - mcp_com/ - MCP communication
+  - mccp_com/ - MCP communication
   - base/ - Base utilities
   - utility/ - General utilities
 
@@ -93,7 +93,7 @@ Build order (from PROMPT_ASSEMBLER.pro):
 2. Infrastructure (cmd_sys, cmd_sys_display, object_registry)
 3. Code analysis (code_analyzer, code_data)
 4. File management (file_manager)
-5. Communication (mcp_com)
+5. Communication (mccp_com)
 6. Testing (object_registry_test)
 7. Main executable
 

@@ -2,7 +2,7 @@ TARGET = STDIO_BRIDGE
 TEMPLATE = app
 CONFIG += c++17
 CONFIG += console
-QT += network
+QT += network websockets
 QT -= gui
 #######################################################################################
 
@@ -17,6 +17,7 @@ DESTDIR = $$PWD/$$SOURCEDIR
 message(DESTDIR = $$PWD/$$SOURCEDIR)
 
 HEADERS += $$PWD/StdinMonitorBridge.h
+HEADERS += $$PWD/WsClientBridge.h
 SOURCES += $$PWD/Main.cpp
 
 T2LS += cmd_sys

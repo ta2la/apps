@@ -51,6 +51,8 @@
 #include "PromptCompCol.h"
 #include "StdoutCmdOutput.h"
 #include "StdinMonitor.h"
+#include "WsServerLite.h"
+#include "WsServerLiteGuard.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -110,6 +112,7 @@ int main(int argc, char *argv[]) {
     StdoutCmdOutput::inst();
     PromptCompCol::inst();
     StdinMonitor::init();
+    WsServerLiteGuard::inst();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
