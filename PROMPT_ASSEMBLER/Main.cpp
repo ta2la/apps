@@ -48,7 +48,6 @@
 #include "PromptCompModel.h"
 #include "PromptCompCol.h"
 #include "StdoutCmdOutput.h"
-#include "StdinMonitor.h"
 #include "WsServerLite.h"
 #include "WsServerLiteGuard.h"
 #include "DirModel.h"
@@ -116,7 +115,6 @@ int main(int argc, char *argv[]) {
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
     PromptCompCol::inst();
-    StdinMonitor::init();
     WsServerLiteGuard::inst();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
