@@ -31,15 +31,13 @@
 #include "Cmds_exerec.h"
 #include "Cmds_test0.h"
 #include "Model_controls.h"
-#include "Interactive_uiControl.h"
-#include "Interactive_uiControl.h"
+#include "Model_toolControls.h"
 #include "Cmds_code_analyzer.h"
 //#include "Cmds_code_analyzer_test.h"
 #include "Cmds_utility_system.h"
 #include "Cmds_prompt_assembler.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
-#include "InteractiveOutputModel.h"
 #include "AnalyzerModuleCol.h"
 #include "Model_tabs.h"
 #include "Cmds_oreg_test.h"
@@ -107,8 +105,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
     view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::inst());
     view->rootContext()->setContextProperty("cmdline",            &Model_controls::inst());
-    view->rootContext()->setContextProperty("interactiveIface",   &Interactive_uiControl::inst());
-    view->rootContext()->setContextProperty("interactiveOutput",  &InteractiveOutputModel::inst());
+    view->rootContext()->setContextProperty("toolControls",      &Model_controlsSettings::inst());
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("analyzerModules",    &AnalyzerModuleCol::inst() );
     view->rootContext()->setContextProperty("promptModel",        &PromptCompModel::inst());

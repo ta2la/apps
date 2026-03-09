@@ -29,6 +29,7 @@ INCLUDEPATH += $$PWD
 HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_controls.h
+HEADERS += $$PWD/Model_toolControls.h
 HEADERS += $$PWD/Model_tabs.h
 HEADERS += $$PWD/Cmds_prompt_assembler.h
 
