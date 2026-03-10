@@ -47,14 +47,7 @@ public:
             m_items.append({TextType,   "LOAD: ", ""});
             m_items.append({ButtonType, "prompt_assembler",       "execute_script ./../projects/prompt_assembler.t2l"});
             m_items.append({ButtonType, "prompt_assembler_test",       "execute_script ./../projects/prompt_assembler_test.t2l"});
-            m_items.append({ButtonType, "DLUBAL",                 "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/dlubal.t2l"});
-            m_items.append({ButtonType, "DLUBAL_MAT",             "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/DLUBAL_MAT.t2l"});
-            m_items.append({ButtonType, "DLUBAL_BB",              "execute_script D:/reposBB/prompt_assembler.t2l"});
-            m_items.append({ButtonType, "DLUBAL_CUT",             "execute_script D:/TIMEAXIS/2026/01/14_PROMPT_ASSEMBLER_LOAD/DLUBAL_CUT.t2l"});
 
-            m_items.append({TextType,   "TEST: ", ""});
-            m_items.append({ButtonType, "add Version.h", "file_add ../../../base2/base/Version.h"});
-            m_items.append({ButtonType, "Version.h --lines 30 60 --lines 90 100", "file_add ../../../base2/base/Version.h --lines 30 60 --lines 90 100"});
 
             m_items.append({TextType,   "EXPORT: ", ""});
             m_items.append({ButtonType, "@view", "dir_merge_files --views"});
@@ -65,10 +58,8 @@ public:
             m_items.append({ButtonType, ".dot",  "dir_export_dot"});
             m_items.append({ButtonType, "Load",  "dir_load_net"});
 
-            m_items.append({TextType,   "TEST: ", ""});
+            m_items.append({TextType,   "TOMOVE: ", ""});
             m_items.append({ButtonType, "Voidcmd",      "voidcmd"});
-            m_items.append({ButtonType, "Export Merge", "dir_merge_files"});
-            m_items.append({ButtonType, "select_dir",   "select_dir"});
             m_items.append({ButtonType, "Bad Command",  "bad_command"});
         }
         if (content == "test") {
@@ -88,11 +79,15 @@ public:
             m_items.append({ButtonType, "argcol_from_string_alone", "argcol_from_string_alone"});
         }
         if (content == "oreg_test") {
-            m_items.append({TextType,   "Create Model: ", ""});
-            m_items.append({EditType,   "1 100",          "create_model_test $text"});
-            m_items.append({TextType,   "OREG TEST: ",           ""});
-            m_items.append({ButtonType, "create_object_test 10", "create_object_test 10"});
-            m_items.append({ButtonType, "create_object_test 20", "create_object_test 20"});
+            m_items.append({TextType,   "TODO: TestModels MDI", ""});
+            m_items.append({TextType,   "Container: ", ""});
+            m_items.append({EditType,   "from to",              "create_model_test $text"});
+            m_items.append({TextType,   "Item: ", ""});
+            m_items.append({EditType,   "num num ...",           "create_object_test $text"});
+            m_items.append({TextType,   "Delete: ", ""});
+            m_items.append({EditType,   "id id ...",             "delete_object_test $text"});
+            m_items.append({TextType,   "Edit: ", ""});
+            m_items.append({EditType,   "id val",                "change_object_test $text"});
             m_items.append({ButtonType, "display_model_col_test", "display_model_col_test"});
         }
         if (content == "disabled") {

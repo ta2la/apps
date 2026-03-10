@@ -85,8 +85,6 @@ int main(int argc, char *argv[]) {
 //! @section Application
     QGuiApplication app(argc, argv);
     app.setApplicationName("PROMPT Assembler");
-    QIcon appIcon("qrc:/images/icon.svg");
-    app.setWindowIcon(appIcon);
 
 //! @section View
     Q_INIT_RESOURCE(cmd_sys_display);
