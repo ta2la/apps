@@ -1,5 +1,7 @@
 # PROMPT_ASSEMBLER Project
 
+**IMPORTANT:** At session start, always read `../../CLAUDE/CLAUDE.md` — it contains shared conventions, bridge connection procedure, coding rules, and architecture notes. When user says "claude" or "do claude", it refers to that file (`../../CLAUDE/CLAUDE.md`).
+
 ## Overview
 CLI tool for analyzing and assembling code, visualizing module dependencies, and managing code analysis operations. Qt-based with console output. Build configuration defined in `PROMPT_ASSEMBLER.pro`.
 
@@ -41,45 +43,7 @@ CLI tool for analyzing and assembling code, visualizing module dependencies, and
 
 ## Commands
 
-When a new command is added, update this list accordingly.
-
-```
-voidcmd                                          - no-op
-logcmd <message...>                              - no-op, execution IS the log entry
-cmds_execute_script <file>                       - execute script (mines commands from file)
-execute_script <file>                            - execute script line by line
-
-module_add <dirPath> [--strict] [--subdirs] [--notload]  - add directory as code module
-file_add <filePath> [--strict] [--lines "from to"]...    - add file to module
-set_output_dir <path>                            - set output directory
-dir_merge_files [--views] [--bydist]             - merge module files into output
-dir_export_dot                                   - export dependency graph as .dot
-
-set_module_used <module> <0|1>                   - mark module used/unused
-analyzer_set_center <nodeName> <moduleName>      - set center node, recalculate distances
-update_claude_md <moduleName>                    - generate CLAUDE.md with module info
-
-system_open_path <path>                          - open with system default app
-system_dot_to_svg <file.dot>                     - convert .dot to SVG via graphviz
-file_to_clipboard <file>                         - copy file content to clipboard
-
-ui_model_display_what <what>                     - toggle UI part visibility
-change_controls <state>                          - update UI control model
-
-oreg_test_setup                                  - initialize object registry test
-oreg_test_display_pool                           - display object pool
-oreg_test_create_container                       - create test container
-oreg_test_container_display <index>              - display container by index
-oreg_test_pool_solve                             - solve pool dependencies
-oreg_list_containers                             - list all containers
-
-create_object_test <value>...                    - create test objects
-create_model_test <from> <to>                    - create test model with range
-delete_object_test <id>...                       - delete test objects by ID
-display_model_col_test                           - display all test models
-
-pa_exit                                          - quit application
-```
+To get the current command list, use `cmds_list` via bridge. Output: `--CATEGORY <category> : cmd1 cmd2 ...`
 
 ## Build Instructions
 ```bash

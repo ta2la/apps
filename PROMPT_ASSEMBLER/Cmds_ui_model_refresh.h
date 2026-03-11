@@ -35,8 +35,8 @@ public:
     Cmds_ui_model_refresh() = delete;
     static bool registerCmds_()
     {
-        CMD_SYS.add("ui_model_display_what",            ui_model_display_what,            false, false );
-        CMD_SYS.add("change_controls",       change_controls,       true,  true );
+        CMD_SYS.add("ui_model_display_what", ui_model_display_what, "prompt_assembler", false, false );
+        CMD_SYS.add("change_controls", change_controls, "prompt_assembler", true, true );
 
         return true;
     }

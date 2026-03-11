@@ -18,7 +18,7 @@ public:
             StdinMonitor::init().wait(1000);
             QCoreApplication::quit();
             return 0;
-        });
+        }, "prompt_assembler");
 
         return true;
     }
