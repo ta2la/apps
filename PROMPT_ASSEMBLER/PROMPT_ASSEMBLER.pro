@@ -36,6 +36,7 @@ HEADERS += $$PWD/Cmds_prompt_assembler.h
 SOURCES += $$PWD/Main.cpp
 SOURCES += $$PWD/Cmds_ui_model_refresh.cpp
 
+T2LS += app_common
 T2LS += code_analyzer
 T2LS += code_data
 T2LS += file_manager

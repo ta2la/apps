@@ -54,6 +54,7 @@
 #include "FileItemData.h"
 #include "PreviewModel.h"
 #include "Cmds_file_manager.h"
+#include "InitInMain.h"
 
 //! @Section QT
 #include <QGuiApplication>
@@ -131,6 +132,7 @@ int main(int argc, char *argv[]) {
     });
 
     Cmds_file_manager::initDefaultDir();
+    InitInMain::init();
     CMD_SYS.execute_threadSafe("voidcmd");
     CMD_SYS.execute_threadSafe("change_controls start_stop");
 

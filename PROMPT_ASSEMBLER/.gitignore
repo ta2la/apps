@@ -8,6 +8,8 @@
 !/prompt_assembler/*.pro
 !/projects/
 !/projects/*.t2l
+!/config/
+!/config/*.t2l
 
 moc_*.*
 qrc_*.*
