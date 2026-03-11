@@ -12,7 +12,9 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication app(argc, argv);
     StdoutCmdOutput::inst().setEnabled(true);
-    StdinMonitorBridge::init().setWsClient(&WsClientBridge::inst());
+    auto& monitor = StdinMonitorBridge::init();
+    monitor.setEnabled(true);
+    monitor.setWsClient(&WsClientBridge::inst());
 
     return app.exec();
 }

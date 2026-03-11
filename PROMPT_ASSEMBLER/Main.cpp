@@ -52,6 +52,7 @@
 #include "WsServerLiteGuard.h"
 #include "DirModel.h"
 #include "FileItemData.h"
+#include "PreviewModel.h"
 #include "Cmds_file_manager.h"
 
 //! @Section QT
@@ -109,6 +110,8 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("testModel",          &TestModelCol_Model::inst());
 
     view->rootContext()->setContextProperty("dirModel",            &DirModel::inst());
+    view->rootContext()->setContextProperty("previewModel",        &PreviewModel::inst());
+    view->rootContext()->setContextProperty("previewDirModel",     &DirModel::instPreview());
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();

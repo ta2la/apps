@@ -47,6 +47,7 @@ public:
         items_.append(Item{ "Prompts",     "qrc:/TabPrompts.qml" });
         items_.append(Item{ "Files",       "qrc:/TabFiles.qml" });
         items_.append(Item{ "TestModels",  "qrc:/TestModels.qml" });
+        items_.append(Item{ "Preview",     "qrc:/Preview.qml" });
         items_.append(Item{ "About",       "qrc:/About.qml" });
     }
 

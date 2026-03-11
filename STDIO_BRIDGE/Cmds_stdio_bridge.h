@@ -25,7 +25,11 @@ public:
                 loop.quit();
             });
             auto connErr = QObject::connect(&ws.socket(),
-                QOverload<QAbstractSocket::SocketError>::of(&QWebSocket::errorOccurred),
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+                &QWebSocket::errorOccurred,
+#else
+                QOverload<QAbstractSocket::SocketError>::of(&QWebSocket::error),
+#endif
                 &loop, [&]() { loop.quit(); });
 
             ws.openConnection();
