@@ -54,6 +54,7 @@
 #include "FileItemData.h"
 #include "PreviewModel.h"
 #include "Cmds_file_manager.h"
+#include "Cmds_app_common.h"
 #include "InitInMain.h"
 
 //! @Section QT
@@ -83,6 +84,7 @@ int main(int argc, char *argv[]) {
     Cmds_code_data::registerCmds_();
     Cmds_prompt_assembler::registerCmds_();
     Cmds_file_manager::registerCmds();
+    Cmds_app_common::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -121,6 +123,7 @@ int main(int argc, char *argv[]) {
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());
+    Cmds_app_common::setRootItem(view->rootObject());
 
     view->setPosition(450,650);
     view->resize(700,1500);
