@@ -4,4 +4,4 @@
 !*.pro
 !.gitignore
 !/resource
-!/resource/*
+!/resource/**
