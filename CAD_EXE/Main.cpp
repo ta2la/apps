@@ -34,6 +34,7 @@
 #include <TcCmdEngine.h>
 #include <T2lScript.h>
 #include "T2lEasyViewCad.h"
+#include "CmdExeFilter_oldCmdSys.h"
 #include "T2lCadObject_refLine.h"
 #include "T2lCadObject_refBoxDevelop.h"
 //#include "T2lCadObject_routeSegment.h"
@@ -79,6 +80,7 @@ int main(int argc, char *argv[]) {
     cout << "cad exe started" << endl;
 
     // command registration
+    CmdExeFilter_oldCmdSys::inst();
     TcObjectRegistry::registry();
     TcCmds_cmdEx::registerCmds_();
     TcCmds_cmdEngine();
