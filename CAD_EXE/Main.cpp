@@ -35,6 +35,8 @@
 #include <T2lScript.h>
 #include "T2lEasyViewCad.h"
 #include "CmdExeFilter_oldCmdSys.h"
+#include "WsServerLite.h"
+#include "WsServerLiteGuard.h"
 #include "T2lCadObject_refLine.h"
 #include "T2lCadObject_refBoxDevelop.h"
 //#include "T2lCadObject_routeSegment.h"
@@ -119,6 +121,7 @@ int main(int argc, char *argv[]) {
     // application initialization
     QApplication a(argc, argv);
     a.setApplicationName("T2CAD");
+    WsServerLiteGuard::inst();
 
     CmdsTab_dir::subdirSet("cad");
 

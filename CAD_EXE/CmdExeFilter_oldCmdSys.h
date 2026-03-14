@@ -2,8 +2,7 @@
 
 #include "CmdExeFilter.h"
 #include "CmdSys.h"
-#include <TcCmdEngine.h>
-#include <TcArgCol.h>
+#include <TcCmdTransl.h>
 
 //=============================================================================
 class CmdExeFilter_oldCmdSys : public CmdExeFilter {
@@ -18,11 +17,9 @@ public:
         QString name = args.get(0).value();
         if (!name.startsWith("@")) return false;
 
-        QString oldArgs = args.toString();
-        oldArgs = oldArgs.mid(1);
-
-        TcArgCol tcArgs(oldArgs.toStdString().c_str());
-        TcCmdEngine::engine().execute(&tcArgs);
+        QString oldCmd = args.toString();
+        oldCmd = oldCmd.mid(1);
+        TcCmdTransl::xcall(oldCmd.toStdString().c_str());
         return true;
     }
 

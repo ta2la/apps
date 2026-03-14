@@ -41,6 +41,7 @@ DEPLIBS += infrastructure:command_registry
 DEPLIBS += base:geogebra
 DEPLIBS += base:base:include
 
+
 CONFIG(debug, debug|release): {
     SOURCEDIR = debug
 } else {
@@ -70,8 +71,25 @@ for (LIBID, DEPLIBS) {
     message("LIBPATH::$${LIBPATH}")
 }
 
+# base2 modules (libs in BUILD/, not in source tree)
+T2LS += mccp_com
+T2LS += cmd_sys
+T2LS += base2
+
+defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT
+else:                    ROOT_LIB_DIR = $$PWD/../../BUILD
+
+for (T2LSLIB, T2LS) {
+    FC_LIB_NAME = $$ROOT_LIB_DIR/$$T2LSLIB/$$SOURCEDIR/lib$${T2LSLIB}.a
+    INCLUDEPATH    += $$PWD/../../base2/$$T2LSLIB
+    LIBS           += $$FC_LIB_NAME
+    PRE_TARGETDEPS += $$FC_LIB_NAME
+    message(FC_LIB_NAME = $$FC_LIB_NAME)
+}
+
 QT += widgets
 QT += quick quickwidgets
+QT += websockets
 
 DISTFILES += $$PWD/resource/icons/*.png
 RC_ICONS = $$PWD/app.ico
