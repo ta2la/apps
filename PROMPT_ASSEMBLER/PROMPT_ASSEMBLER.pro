@@ -46,7 +46,7 @@ T2LS += cmd_sys
 T2LS += utility
 T2LS += object_registry
 T2LS += object_registry_test
-T2LS += base
+T2LS += base2
 
 defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT
 else:                    ROOT_LIB_DIR = $$PWD/../../BUILD

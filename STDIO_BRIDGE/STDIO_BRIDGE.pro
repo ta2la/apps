@@ -22,7 +22,7 @@ HEADERS += $$PWD/Cmds_stdio_bridge.h
 SOURCES += $$PWD/Main.cpp
 
 T2LS += cmd_sys
-T2LS += base
+T2LS += base2
 
 defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT
 else:                    ROOT_LIB_DIR = $$PWD/../../BUILD

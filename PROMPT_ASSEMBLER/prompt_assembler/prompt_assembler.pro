@@ -1,7 +1,7 @@
 TEMPLATE = subdirs
 CONFIG += ordered
 
-SUBDIRS += ../../../base2/base
+SUBDIRS += ../../../base2/base2
 SUBDIRS += ../../../base2/object_registry
 SUBDIRS += ../../../base2/object_registry_test
 SUBDIRS += ../../../base2/cmd_sys
@@ -15,7 +15,7 @@ SUBDIRS += ../../../base2/mccp_com
 SUBDIRS += ../../PROMPT_ASSEMBLER
 
 ../../PROMPT_ASSEMBLER.depends = \
-    ../../../base2/base \
+    ../../../base2/base2 \
     ../../../base2/object_registry \
     ../../../base2/object_registry_test \
     ../../../base2/cmd_sys \
