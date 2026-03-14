@@ -125,8 +125,6 @@ int main(int argc, char *argv[]) {
     UiControl::inst().setRootObject(view->rootObject());
     Cmds_app_common::setRootItem(view->rootObject());
 
-    view->setPosition(450,650);
-    view->resize(700,1500);
     view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->show();
 
