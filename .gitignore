@@ -2,6 +2,7 @@
 !.gitignore
 !/PROMPT_ASSEMBLER
 !/STDIO_BRIDGE
+!/CAD_EXE
 
 !/docs/
 !/docs/*.*

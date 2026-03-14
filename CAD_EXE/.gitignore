@@ -1,0 +1,7 @@
+*
+!*.cpp
+!*.h
+!*.pro
+!.gitignore
+!/resource
+!/resource/*
