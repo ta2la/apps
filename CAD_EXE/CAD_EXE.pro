@@ -33,7 +33,6 @@ DEPLIBS += hg:hg_text
 
 DEPLIBS += infrastructure:html_view
 
-DEPLIBS += infrastructure:licence:include
 DEPLIBS += infrastructure:object_registry
 DEPLIBS += infrastructure:command_registry_ex
 DEPLIBS += infrastructure:command_registry

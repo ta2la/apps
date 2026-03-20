@@ -23,7 +23,6 @@ SUBDIRS += ../../../base/geogebra
 SUBDIRS += ../../../infrastructure/command_registry
 SUBDIRS += ../../../infrastructure/command_registry_ex
 SUBDIRS += ../../../infrastructure/object_registry
-SUBDIRS += ../../../infrastructure/licence
 
 SUBDIRS += ../../../infrastructure/html_view
 

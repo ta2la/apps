@@ -20,8 +20,6 @@
 #include "T2lCmdsTab_cad.h"
 #include "T2lCmds_cad.h"
 //#include "T2lCmds_signal.h"
-#include "T2lLicenceUtility.h"
-
 //cad
 #include "T2lTentativeImplementationCad.h"
 

@@ -23,8 +23,6 @@
 // infrastructure
 #include "TcArgCol.h"
 
-#include "T2lLicenceUtility.h"
-
 using namespace std;
 using namespace T2l;
 
