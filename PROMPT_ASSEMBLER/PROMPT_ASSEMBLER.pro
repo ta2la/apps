@@ -36,6 +36,7 @@ HEADERS += $$PWD/Cmds_prompt_assembler.h
 SOURCES += $$PWD/Main.cpp
 SOURCES += $$PWD/Cmds_ui_model_refresh.cpp
 
+T2LS += crase_viewer
 T2LS += app_common
 T2LS += code_analyzer
 T2LS += code_data
@@ -72,6 +73,7 @@ QT += quick
 QT += quickwidgets
 QT += quickcontrols2
 QT += websockets
+QT += sql
 
 #######################################################################################
 

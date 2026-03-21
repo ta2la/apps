@@ -11,6 +11,7 @@ SUBDIRS += ../../../base2/code_data
 SUBDIRS += ../../../base2/code_analyzer
 SUBDIRS += ../../../base2/file_manager
 SUBDIRS += ../../../base2/app_common
+SUBDIRS += ../../../base2/crase_viewer
 SUBDIRS += ../../../base2/mccp_com
 SUBDIRS += ../../PROMPT_ASSEMBLER
 
@@ -25,4 +26,5 @@ SUBDIRS += ../../PROMPT_ASSEMBLER
     ../../../base2/code_analyzer \
     ../../../base2/file_manager \
     ../../../base2/app_common \
+    ../../../base2/crase_viewer \
     ../../../base2/mccp_com

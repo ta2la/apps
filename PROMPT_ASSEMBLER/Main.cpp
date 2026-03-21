@@ -55,6 +55,9 @@
 #include "PreviewModel.h"
 #include "Cmds_file_manager.h"
 #include "Cmds_app_common.h"
+#include "CraseObjectsBySqlModel.h"
+#include "CraseObject.h"
+#include "Cmds_crase_viewer.h"
 #include "InitInMain.h"
 
 //! @Section QT
@@ -85,6 +88,7 @@ int main(int argc, char *argv[]) {
     Cmds_prompt_assembler::registerCmds_();
     Cmds_file_manager::registerCmds();
     Cmds_app_common::registerCmds();
+    Cmds_crase_viewer::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -96,10 +100,12 @@ int main(int argc, char *argv[]) {
     Q_INIT_RESOURCE(utility);
     Q_INIT_RESOURCE(object_registry_test);
     Q_INIT_RESOURCE(file_manager);
+    Q_INIT_RESOURCE(crase_viewer);
 
     qRegisterMetaType<AnalyzerModuleData>();
     qRegisterMetaType<TestModelItem>();
     qRegisterMetaType<FileItemData>();
+    qRegisterMetaType<CraseObject>();
 
     QQuickView* view = new QQuickView();
 
@@ -115,6 +121,10 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("dirModel",            &DirModel::inst());
     view->rootContext()->setContextProperty("previewModel",        &PreviewModel::inst());
     view->rootContext()->setContextProperty("previewDirModel",     &DirModel::instPreview());
+
+    static CraseObjectsBySqlModel craseObjectsModel;
+    Cmds_crase_viewer::setModel(&craseObjectsModel);
+    view->rootContext()->setContextProperty("craseObjectsModel",   &craseObjectsModel);
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
