@@ -57,6 +57,8 @@
 #include "Cmds_app_common.h"
 #include "CraseObjectsBySqlModel.h"
 #include "CraseObject.h"
+#include "CraseTreeModel.h"
+#include "CraseTreeItem.h"
 #include "Cmds_crase_viewer.h"
 #include "InitInMain.h"
 
@@ -106,6 +108,7 @@ int main(int argc, char *argv[]) {
     qRegisterMetaType<TestModelItem>();
     qRegisterMetaType<FileItemData>();
     qRegisterMetaType<CraseObject>();
+    qRegisterMetaType<CraseTreeItem>();
 
     QQuickView* view = new QQuickView();
 
@@ -123,8 +126,11 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("previewDirModel",     &DirModel::instPreview());
 
     static CraseObjectsBySqlModel craseObjectsModel;
+    static CraseTreeModel craseTreeModel;
     Cmds_crase_viewer::setModel(&craseObjectsModel);
+    Cmds_crase_viewer::setTreeModel(&craseTreeModel);
     view->rootContext()->setContextProperty("craseObjectsModel",   &craseObjectsModel);
+    view->rootContext()->setContextProperty("craseTreeModel",      &craseTreeModel);
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
