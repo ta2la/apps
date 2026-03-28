@@ -16,6 +16,7 @@ public:
         items_.append(Item{ "Cmdline",     "qrc:/TabCmdline.qml",       "\u2630" });
         items_.append(Item{ "Objects",     "qrc:/TabObjects.qml",       "\u2299" });
         items_.append(Item{ "Tree",        "qrc:/TabObjectTree.qml",    "\xF0\x9F\x8C\xB3" });
+        items_.append(Item{ "Drawing",     "qrc:/TabDrawing.qml",       "\xF0\x9F\x93\x90" });
         items_.append(Item{ "Metadata",    "qrc:/TabMetadata.qml",      "\xF0\x9F\x93\x8B" });
         items_.append(Item{ "About",       "qrc:/About.qml",            "\u24D8" });
     }

@@ -28,6 +28,8 @@
 #include "CraseObject.h"
 #include "CraseTreeModel.h"
 #include "CraseTreeItem.h"
+#include "CraseDrawingModel.h"
+#include "CraseDrawingItem.h"
 #include "CraseTypesModel.h"
 #include "CraseTypeItem.h"
 #include "CraseAttrTypesModel.h"
@@ -76,6 +78,7 @@ int main(int argc, char *argv[]) {
     qRegisterMetaType<TestModelItem>();
     qRegisterMetaType<CraseObject>();
     qRegisterMetaType<CraseTreeItem>();
+    qRegisterMetaType<CraseDrawingItem>();
     qRegisterMetaType<CraseTypeItem>();
     qRegisterMetaType<CraseAttrTypeItem>();
     qRegisterMetaType<CraseRelTypeItem>();
@@ -97,10 +100,13 @@ int main(int argc, char *argv[]) {
 
     static CraseObjectsBySqlModel craseObjectsModel;
     static CraseTreeModel craseTreeModel;
+    static CraseDrawingModel craseDrawingModel;
     Cmds_crase_viewer::setModel(&craseObjectsModel);
     Cmds_crase_viewer::setTreeModel(&craseTreeModel);
+    Cmds_crase_viewer::setDrawingModel(&craseDrawingModel);
     view->rootContext()->setContextProperty("craseObjectsModel",   &craseObjectsModel);
     view->rootContext()->setContextProperty("craseTreeModel",      &craseTreeModel);
+    view->rootContext()->setContextProperty("craseDrawingModel",   &craseDrawingModel);
 
     static CraseTypesModel craseTypesModel;
     static CraseAttrTypesModel craseAttrTypesModel;
