@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="Interactive.qml">InteractiveCrase.qml</file>
+    </qresource>
+</RCC>

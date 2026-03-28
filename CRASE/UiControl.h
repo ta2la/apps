@@ -3,10 +3,6 @@
 #include "CmdUiControl.h"
 #include "Model_controls.h"
 
-///@view:beg
-
-#define UI_CONTROL UiControl::inst()
-
 //=============================================================================
 class UiControl : public CmdUiControl {
     Q_OBJECT
@@ -18,5 +14,3 @@ public:
 private:
     UiControl() : CmdUiControl(Model_controls::inst()) {}
 };
-
-///@view:end

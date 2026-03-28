@@ -19,16 +19,12 @@
  */
 #pragma once
 
-#include "Model_controlsEx.h"
+#include "CmdModel_controls.h"
 #include "Model_filteroutCmds.h"
-
-#include <QAbstractListModel>
-#include <QList>
-#include <QString>
 
 ///@view:beg
 
-class Model_controls : public Model_controlsEx
+class Model_controls : public CmdModel_controls
 //=============================================================================
 {
     Q_OBJECT

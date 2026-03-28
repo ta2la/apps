@@ -1,0 +1,10 @@
+*
+!*.cpp
+!*.h
+!*.pro
+!.gitignore
+!/Resources/
+!/Resources/*.qml
+!/Resources/*.qrc
+!/crase/
+!/crase/*.pro
