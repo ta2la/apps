@@ -50,6 +50,7 @@ public:
         items_.append(Item{ "Preview",     "qrc:/Preview.qml" });
         items_.append(Item{ "Objects",     "qrc:/TabObjects.qml" });
         items_.append(Item{ "Tree",        "qrc:/TabObjectTree.qml" });
+        items_.append(Item{ "Metadata",    "qrc:/TabMetadata.qml" });
         items_.append(Item{ "About",       "qrc:/About.qml" });
     }
 

@@ -59,6 +59,12 @@
 #include "CraseObject.h"
 #include "CraseTreeModel.h"
 #include "CraseTreeItem.h"
+#include "CraseTypesModel.h"
+#include "CraseTypeItem.h"
+#include "CraseAttrTypesModel.h"
+#include "CraseAttrTypeItem.h"
+#include "CraseRelTypesModel.h"
+#include "CraseRelTypeItem.h"
 #include "Cmds_crase_viewer.h"
 #include "InitInMain.h"
 
@@ -109,6 +115,9 @@ int main(int argc, char *argv[]) {
     qRegisterMetaType<FileItemData>();
     qRegisterMetaType<CraseObject>();
     qRegisterMetaType<CraseTreeItem>();
+    qRegisterMetaType<CraseTypeItem>();
+    qRegisterMetaType<CraseAttrTypeItem>();
+    qRegisterMetaType<CraseRelTypeItem>();
 
     QQuickView* view = new QQuickView();
 
@@ -131,6 +140,16 @@ int main(int argc, char *argv[]) {
     Cmds_crase_viewer::setTreeModel(&craseTreeModel);
     view->rootContext()->setContextProperty("craseObjectsModel",   &craseObjectsModel);
     view->rootContext()->setContextProperty("craseTreeModel",      &craseTreeModel);
+
+    static CraseTypesModel craseTypesModel;
+    static CraseAttrTypesModel craseAttrTypesModel;
+    static CraseRelTypesModel craseRelTypesModel;
+    craseTypesModel.load();
+    craseAttrTypesModel.load();
+    craseRelTypesModel.load();
+    view->rootContext()->setContextProperty("craseTypesModel",      &craseTypesModel);
+    view->rootContext()->setContextProperty("craseAttrTypesModel",  &craseAttrTypesModel);
+    view->rootContext()->setContextProperty("craseRelTypesModel",   &craseRelTypesModel);
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
