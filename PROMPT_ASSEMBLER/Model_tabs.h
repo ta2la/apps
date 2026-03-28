@@ -32,26 +32,22 @@
 class Model_tabs : public QAbstractListModel {
     Q_OBJECT
 public:
-    enum Roles {
-        TextRole = Qt::UserRole + 1,
-        QmlRole
-    };
+    enum Roles { TextRole = Qt::UserRole + 1, QmlRole, IconRole };
 
     explicit Model_tabs(QObject* parent = nullptr)
         : QAbstractListModel(parent)
     {
-        // staticky pro začátek
-        items_.append(Item{ "Interactive", "qrc:/Interactive.qml" });
-        items_.append(Item{ "Cmdline",     "qrc:/TabCmdline.qml" });
-        items_.append(Item{ "Analyzer",    "qrc:/TabAnalyzer.qml" });
-        items_.append(Item{ "Prompts",     "qrc:/TabPrompts.qml" });
-        items_.append(Item{ "Files",       "qrc:/TabFiles.qml" });
-        items_.append(Item{ "TestModels",  "qrc:/TestModels.qml" });
-        items_.append(Item{ "Preview",     "qrc:/Preview.qml" });
-        items_.append(Item{ "Objects",     "qrc:/TabObjects.qml" });
-        items_.append(Item{ "Tree",        "qrc:/TabObjectTree.qml" });
-        items_.append(Item{ "Metadata",    "qrc:/TabMetadata.qml" });
-        items_.append(Item{ "About",       "qrc:/About.qml" });
+        items_.append(Item{ "Interactive", "qrc:/Interactive.qml",       "\u2699" });
+        items_.append(Item{ "Cmdline",     "qrc:/TabCmdline.qml",       "\u2630" });
+        items_.append(Item{ "Analyzer",    "qrc:/TabAnalyzer.qml",      "\xF0\x9F\x8C\x89" });
+        items_.append(Item{ "Prompts",     "qrc:/TabPrompts.qml",       "\u00B6" });
+        items_.append(Item{ "Files",       "qrc:/TabFiles.qml",         "\xF0\x9F\x97\x81" });
+        items_.append(Item{ "TestModels",  "qrc:/TestModels.qml",       "\u2699" });
+        items_.append(Item{ "Preview",     "qrc:/Preview.qml",          "\xF0\x9F\x91\x81" });
+        items_.append(Item{ "Objects",     "qrc:/TabObjects.qml",       "\u2299" });
+        items_.append(Item{ "Tree",        "qrc:/TabObjectTree.qml",    "\xF0\x9F\x8C\xB3" });
+        items_.append(Item{ "Metadata",    "qrc:/TabMetadata.qml",      "\xF0\x9F\x93\x8B" });
+        items_.append(Item{ "About",       "qrc:/About.qml",            "\u24D8" });
     }
 
     int rowCount(const QModelIndex& parent = QModelIndex()) const override {
@@ -60,31 +56,22 @@ public:
     }
 
     QVariant data(const QModelIndex& index, int role) const override {
-        if (!index.isValid())
-            return {};
-
+        if (!index.isValid()) return {};
         const Item& it = items_.at(index.row());
-
         switch (role) {
         case TextRole: return it.text;
         case QmlRole:  return it.qml;
+        case IconRole: return it.icon;
         }
         return {};
     }
 
     QHash<int, QByteArray> roleNames() const override {
-        return {
-            { TextRole, "text" },
-            { QmlRole,  "qml"  }
-        };
+        return { { TextRole, "text" }, { QmlRole, "qml" }, { IconRole, "icon" } };
     }
 
 private:
-    struct Item {
-        QString text;
-        QString qml;
-    };
-
+    struct Item { QString text; QString qml; QString icon; };
     QList<Item> items_;
 };
 

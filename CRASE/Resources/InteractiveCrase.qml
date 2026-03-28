@@ -51,11 +51,11 @@ Rectangle {
                 delegate: Rectangle {
                     visible: index > 0
                     width: visible ? 100 : 0; height: visible ? 30 : 0
-                    radius: 2; color: "#455C71"
+                    radius: 2; color: appStyle.barColor
                     Text {
                         anchors.centerIn: parent
-                        text: model.text
-                        font.pointSize: 10; font.bold: true; color: "#fff"
+                        text: model.icon + " " + model.text
+                        font.pointSize: 10; font.bold: true; color: appStyle.textColor
                     }
                     MouseArea {
                         anchors.fill: parent

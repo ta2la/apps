@@ -23,6 +23,7 @@
 #include "WsServerLiteGuard.h"
 //#include "PreviewModel.h"
 #include "Cmds_app_common.h"
+#include "AppStyle.h"
 #include "CraseObjectsBySqlModel.h"
 #include "CraseObject.h"
 #include "CraseTreeModel.h"
@@ -79,7 +80,12 @@ int main(int argc, char *argv[]) {
     qRegisterMetaType<CraseAttrTypeItem>();
     qRegisterMetaType<CraseRelTypeItem>();
 
+    AppStyle::inst().setBarColor("#5680A0");
+    AppStyle::inst().setTextColor("#F0DC98");
+    AppStyle::inst().setIcon("\xF0\x9F\x8C\x80");
+
     QQuickView* view = new QQuickView();
+    view->rootContext()->setContextProperty("appStyle", &AppStyle::inst());
 
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
     view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::inst());
@@ -115,6 +121,7 @@ int main(int argc, char *argv[]) {
     Cmds_app_common::setRootItem(view->rootObject());
 
     view->setResizeMode(QQuickView::SizeRootObjectToView);
+    view->resize(1200, 800);
     view->show();
 
     QObject::connect(&app, &QGuiApplication::aboutToQuit, []() {

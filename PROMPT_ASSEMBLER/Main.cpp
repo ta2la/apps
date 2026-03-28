@@ -55,6 +55,7 @@
 #include "PreviewModel.h"
 #include "Cmds_file_manager.h"
 #include "Cmds_app_common.h"
+#include "AppStyle.h"
 #include "CraseObjectsBySqlModel.h"
 #include "CraseObject.h"
 #include "CraseTreeModel.h"
@@ -120,6 +121,7 @@ int main(int argc, char *argv[]) {
     qRegisterMetaType<CraseRelTypeItem>();
 
     QQuickView* view = new QQuickView();
+    view->rootContext()->setContextProperty("appStyle", &AppStyle::inst());
 
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
     view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::inst());
