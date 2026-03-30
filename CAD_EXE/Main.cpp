@@ -33,6 +33,7 @@
 #include <T2lScript.h>
 #include "T2lEasyViewCad.h"
 #include "CmdExeFilter_oldCmdSys.h"
+#include "Cmds_cmd_sys.h"
 #include "WsServerLite.h"
 #include "WsServerLiteGuard.h"
 #include "T2lCadObject_refLine.h"
@@ -58,6 +59,7 @@
 #include "T2lCmds_cadPro.h"
 #include "T2lCadObject_linePro.h"
 #include "T2lCmds_cadSettings.h"
+#include "T2lCmds_cadManipulators.h"
 
 // hg
 #include "T2lCmdQueue.h"
@@ -81,6 +83,7 @@ int main(int argc, char *argv[]) {
 
     // command registration
     CmdExeFilter_oldCmdSys::inst();
+    Cmds_cmd_sys::registerCmds_();
     TcObjectRegistry::registry();
     TcCmds_cmdEx::registerCmds_();
     TcCmds_cmdEngine();
@@ -93,6 +96,7 @@ int main(int argc, char *argv[]) {
     Cmds_cad_exe::registerCmds_();
     Cmds_cadPro::registerCmds_();
     Cmds_cadSettings();
+    Cmds_cadManipulators();
 
     Point2FCol points(Point2F(0, 0)); points.add(Point2F(0, 0));
 

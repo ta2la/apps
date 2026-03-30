@@ -14,6 +14,7 @@ INCLUDEPATH += $$PWD/
 
 DEPLIBS += infrastructure:applib:include
 DEPLIBS += evo:cad
+DEPLIBS += evo:cad_cmds_manipulate
 DEPLIBS += evo:cad_draw
 DEPLIBS += cad_professional:cad_professional_lib
 DEPLIBS += evo:cad_infrastructure

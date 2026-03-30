@@ -44,6 +44,7 @@ SUBDIRS += ../../../evo/cad_infrastructure
 SUBDIRS += ../../../cad_professional/cad_professional_lib
 SUBDIRS += ../../../evo/cad_draw
 SUBDIRS += ../../../evo/cad
+SUBDIRS += ../../../evo/cad_cmds_manipulate
 SUBDIRS += ../../../infrastructure/applib
 
 SUBDIRS += ../../../base2/base2
