@@ -40,6 +40,7 @@ T2LS += crase_viewer
 T2LS += app_common
 T2LS += code_analyzer
 T2LS += code_data
+T2LS += file_manager_base
 T2LS += file_manager
 T2LS += mccp_com
 T2LS += cmd_sys_display
