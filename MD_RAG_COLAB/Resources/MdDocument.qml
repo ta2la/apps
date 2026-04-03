@@ -6,46 +6,53 @@ Rectangle {
     color: "#FAFAF0"
     focus: true
 
-    Flickable {
+    ListView {
+        id: listView
         anchors.fill: parent
         anchors.margins: 10
-        contentHeight: mdFlow.implicitHeight + 20
-        flickableDirection: Flickable.VerticalFlick
+        spacing: 6
+        model: mdModel
+        clip: true
+
         ScrollBar.vertical: ScrollBar { policy: ScrollBar.AsNeeded }
 
-        Flow {
-            id: mdFlow
-            width: parent.width
+        delegate: Flow {
+            id: itemDelegate
+            width: listView.width
             spacing: 4
+            topPadding: model.type <= 2 ? 8 : 0
+
+            property int itemIndex: index
+            property int itemType: model.type
 
             Repeater {
-                model: mdModel
+                model: wordModel
                 delegate: Rectangle {
-                    width: wordText.implicitWidth + 8
-                    height: wordText.implicitHeight + 4
+                    width: wordText.implicitWidth + 6
+                    height: wordText.implicitHeight + 2
                     radius: 2
-                    color: model.isCursor ? "#FFD700" : "transparent"
+                    color: (mdModel.cursorItem === itemDelegate.itemIndex
+                         && mdModel.cursorWord === index)
+                         ? "#FFD700" : "transparent"
 
                     Text {
                         id: wordText
                         anchors.centerIn: parent
                         text: model.text
-                        font.pointSize: model.type === 0 ? 18 : model.type === 1 ? 14 : model.type === 2 ? 12 : 10
-                        font.bold: model.type <= 2 || model.style === 1
+                        font.pointSize: itemDelegate.itemType === 0 ? 18 : itemDelegate.itemType === 1 ? 14 : itemDelegate.itemType === 2 ? 12 : 10
+                        font.bold: itemDelegate.itemType <= 2 || model.style === 1
                     }
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: mdModel.setCursorIndex(index)
+                        onClicked: mdModel.setCursor(itemDelegate.itemIndex, index)
                     }
                 }
             }
         }
     }
 
-    Keys.onLeftPressed:  mdModel.setCursorIndex(mdModel.cursorIndex - 1)
-    Keys.onRightPressed: mdModel.setCursorIndex(mdModel.cursorIndex + 1)
-    Keys.onUpPressed:    mdModel.setCursorIndex(mdModel.cursorIndex - 5)
-    Keys.onDownPressed:  mdModel.setCursorIndex(mdModel.cursorIndex + 5)
+    Keys.onLeftPressed:  mdModel.moveCursor(-1)
+    Keys.onRightPressed: mdModel.moveCursor(1)
 }

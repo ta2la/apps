@@ -19,13 +19,11 @@ HEADERS += $$PWD/Model_controls.h
 HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_toolControls.h
-HEADERS += $$PWD/MdModel.h
-HEADERS += $$PWD/MdItem.h
-
 SOURCES += $$PWD/Main.cpp
 
 RESOURCES += $$PWD/Resources/md_rag_colab.qrc
 
+T2LS += md_rag
 T2LS += app_common
 T2LS += cmd_sys_display
 T2LS += cmd_sys
