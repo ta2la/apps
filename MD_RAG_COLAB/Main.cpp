@@ -25,6 +25,8 @@
 #include "StdinMonitor.h"
 #include "MdModel.h"
 #include "MdItem.h"
+#include "MdParser.h"
+#include "Cmds_md_rag.h"
 
 //! @section Qt
 #include <QGuiApplication>
@@ -44,6 +46,7 @@ int main(int argc, char *argv[]) {
     Cmds_exerec::registerCmds_();
     Cmds_utility_system::registerCmds();
     Cmds_app_common::registerCmds();
+    Cmds_md_rag::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -69,30 +72,8 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("mdModel",            &MdModel::inst());
 
-//! @section Demo content
-    using W = MdWord;
-    using I = MdItem;
-    QList<MdItem> demo;
-
-    demo.append(I(I::HEADING1, { W("Cesnecka") }));
-    demo.append(I(I::PARAGRAPH, { W("Klasicka"), W("ceska"), W("polevka"), W("na"),
-        W("zahrati."), W("Idealni"), W("po"), W("silvestru.") }));
-
-    demo.append(I(I::HEADING2, { W("Ingredience") }));
-    demo.append(I(I::PARAGRAPH, { W("8"), W("strouzku", W::BOLD), W("cesneku,"),
-        W("4"), W("brambory,"), W("litr"), W("vody,"), W("kmyn,"), W("sul.") }));
-    demo.append(I(I::PARAGRAPH, { W("Volitelne:"), W("vejce,"), W("opeceny"), W("chleb,"),
-        W("syr", W::BOLD), W("na"), W("strouhanem.") }));
-
-    demo.append(I(I::HEADING2, { W("Postup") }));
-    demo.append(I(I::PARAGRAPH, { W("Brambory"), W("oloupat,"), W("nakrajet"), W("na"),
-        W("kosticky"), W("a"), W("dat"), W("varit"), W("do"), W("osolene"), W("vody.") }));
-    demo.append(I(I::PARAGRAPH, { W("Cesnek"), W("prolisovat"), W("nebo"), W("najemno"),
-        W("nakrajet."), W("Pridat"), W("k"), W("bramboram"), W("az"), W("zmeknou.") }));
-    demo.append(I(I::PARAGRAPH, { W("Ochutit"), W("kmynem", W::BOLD), W("a"), W("soli."),
-        W("Podat"), W("s"), W("chlebem"), W("a"), W("vejcem.") }));
-
-    MdModel::inst().load(demo);
+//! @section Default content
+    MdModel::inst().load({ MdItem(MdItem::HEADING1, { MdWord("Nothing"), MdWord("loaded.") }) });
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();

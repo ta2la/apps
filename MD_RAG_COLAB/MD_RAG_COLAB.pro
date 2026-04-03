@@ -19,6 +19,8 @@ HEADERS += $$PWD/Model_controls.h
 HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_toolControls.h
+HEADERS += $$PWD/Cmds_md_rag.h
+
 SOURCES += $$PWD/Main.cpp
 
 RESOURCES += $$PWD/Resources/md_rag_colab.qrc
