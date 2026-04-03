@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>InteractiveMdRag.qml</file>
+        <file>MdDocument.qml</file>
+        <file>About.qml</file>
+    </qresource>
+</RCC>

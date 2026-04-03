@@ -1,0 +1,12 @@
+*
+!*.cpp
+!*.h
+!*.pro
+!*.md
+!*.qml
+!*.qrc
+!.gitignore
+!/Resources
+!/Resources/**
+!/md_rag_colab
+!/md_rag_colab/**
