@@ -14,6 +14,7 @@ public:
     {
         items_.append(Item{ "Interactive", "qrc:/InteractiveMdRag.qml",  "\xF0\x9F\x93\x84" });
         items_.append(Item{ "Document",    "qrc:/MdDocument.qml",       "\xF0\x9F\x93\x9D" });
+        items_.append(Item{ "Project",     "qrc:/MdFileManager.qml",    "\xF0\x9F\x93\x81" });
         items_.append(Item{ "Cmdline",     "qrc:/TabCmdline.qml",       "\u2630" });
         items_.append(Item{ "About",       "qrc:/About.qml",            "\u24D8" });
     }

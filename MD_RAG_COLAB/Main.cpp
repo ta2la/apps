@@ -12,10 +12,9 @@
 #include "Cmds_exerec.h"
 #include "Model_controls.h"
 #include "Model_toolControls.h"
-#include "Cmds_utility_system.h"
 #include "Model_tabs.h"
 #include "StdoutCmdOutput.h"
-#include "WsServerLite.h"
+//#include "WsServerLite.h"
 #include "WsServerLiteGuard.h"
 #include "Cmds_app_common.h"
 #include "AppStyle.h"
@@ -25,8 +24,11 @@
 #include "StdinMonitor.h"
 #include "MdModel.h"
 #include "MdItem.h"
-#include "MdParser.h"
+//#include "MdParser.h"
 #include "Cmds_md_rag.h"
+#include "Cmds_file_manager_md.h"
+#include "MdDirModel.h"
+#include "FileItemData.h"
 
 //! @section Qt
 #include <QGuiApplication>
@@ -44,9 +46,9 @@ int main(int argc, char *argv[]) {
     Cmds_ui_model_refresh::registerCmds_();
     Cmds_cmd_sys::registerCmds_();
     Cmds_exerec::registerCmds_();
-    Cmds_utility_system::registerCmds();
     Cmds_app_common::registerCmds();
     Cmds_md_rag::registerCmds();
+    Cmds_file_manager_md::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -54,10 +56,11 @@ int main(int argc, char *argv[]) {
 
 //! @section View
     Q_INIT_RESOURCE(cmd_sys_display);
-    Q_INIT_RESOURCE(utility);
+    Q_INIT_RESOURCE(file_manager_md);
     Q_INIT_RESOURCE(md_rag_colab);
 
     qRegisterMetaType<MdItem>();
+    qRegisterMetaType<FileItemData>();
 
     AppStyle::inst().setBarColor("#4A7A5A");
     AppStyle::inst().setTextColor("#F0F0D0");
@@ -71,6 +74,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("toolControls",       &Model_controlsSettings::inst());
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("mdModel",            &MdModel::inst());
+    view->rootContext()->setContextProperty("mdDirModel",         &MdDirModel::inst());
 
 //! @section Default content
     MdModel::inst().load({ MdItem(MdItem::HEADING1, { MdWord("Nothing"), MdWord("loaded.") }) });

@@ -25,11 +25,12 @@ SOURCES += $$PWD/Main.cpp
 
 RESOURCES += $$PWD/Resources/md_rag_colab.qrc
 
+T2LS += file_manager_md
+T2LS += file_manager_base
 T2LS += md_rag
 T2LS += app_common
 T2LS += cmd_sys_display
 T2LS += cmd_sys
-T2LS += utility
 T2LS += object_registry
 T2LS += mccp_com
 T2LS += base2
