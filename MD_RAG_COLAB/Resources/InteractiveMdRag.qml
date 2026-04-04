@@ -24,6 +24,8 @@ Rectangle {
                       onClicked: { parent.selb = text; }}
             Button { text: "Cmdline";     height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls test");}}
+            Button { text: "Bookmarks";   height: parent.selb===text? 32:18;
+                      onClicked: { parent.selb = text; }}
         }
     }
 
@@ -111,6 +113,33 @@ Rectangle {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // Bookmarks area
+    Rectangle {
+        id: bookmarksArea
+        x: 10; y: 44
+        width: parent.width-20
+        height: parent.height - 54
+        color: "#D8DDE8"
+        clip: true
+        visible: tabBar.children[0].selb === "Bookmarks"
+
+        Row {
+            x: 5; y: 5
+            spacing: 10
+
+            Button {
+                text: "\u25B2 Up"
+                height: 30
+                onClicked: qmlInterface.callCmd("bookmark_shift -1")
+            }
+            Button {
+                text: "\u25BC Down"
+                height: 30
+                onClicked: qmlInterface.callCmd("bookmark_shift 1")
             }
         }
     }
