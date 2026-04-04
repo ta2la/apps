@@ -28,6 +28,7 @@
 #include "Cmds_md_rag.h"
 #include "Cmds_file_manager_md.h"
 #include "MdDirModel.h"
+#include "BookmarkModel.h"
 #include "FileItemData.h"
 
 //! @section Qt
@@ -75,6 +76,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("mdModel",            &MdModel::inst());
     view->rootContext()->setContextProperty("mdDirModel",         &MdDirModel::inst());
+    view->rootContext()->setContextProperty("bookmarkModel",      &BookmarkModel::inst());
 
 //! @section Default content
     MdModel::inst().load({ MdItem(MdItem::HEADING1, { MdWord("Nothing"), MdWord("loaded.") }) });
