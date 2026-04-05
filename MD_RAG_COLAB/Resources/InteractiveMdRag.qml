@@ -85,7 +85,7 @@ Rectangle {
         height: parent.height - 54
         color: "#CAD7E8"
         clip: true
-        visible: tabBar.children[0].selb !== "Windows"
+        visible: tabBar.children[0].selb === "Cmdline"
 
         Flickable {
             anchors.fill: parent
@@ -140,6 +140,15 @@ Rectangle {
                 text: "\u25BC Down"
                 height: 30
                 onClicked: qmlInterface.callCmd("bookmark_shift 1")
+            }
+            Button {
+                text: "+ Add"
+                height: 30
+                onClicked: {
+                    var item = mdDirModel.selectedItem
+                    if (item && item.filePath)
+                        qmlInterface.callCmd("bookmark_add " + item.filePath)
+                }
             }
         }
     }
