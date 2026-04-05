@@ -142,6 +142,16 @@ Rectangle {
                 onClicked: qmlInterface.callCmd("bookmark_shift 1")
             }
             Button {
+                text: "\u25C0 Level"
+                height: 30
+                onClicked: qmlInterface.callCmd("bookmark_level -1")
+            }
+            Button {
+                text: "\u25B6 Level"
+                height: 30
+                onClicked: qmlInterface.callCmd("bookmark_level 1")
+            }
+            Button {
                 text: "+ Add"
                 height: 30
                 onClicked: {
