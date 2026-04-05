@@ -25,7 +25,6 @@ SOURCES += $$PWD/Main.cpp
 
 RESOURCES += $$PWD/Resources/md_rag_colab.qrc
 
-T2LS += file_manager_md
 T2LS += file_manager_base
 T2LS += md_rag
 T2LS += app_common

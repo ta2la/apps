@@ -26,8 +26,8 @@
 #include "MdItem.h"
 //#include "MdParser.h"
 #include "Cmds_md_rag.h"
-#include "Cmds_file_manager_md.h"
-#include "MdDirModel.h"
+#include "Cmds_file_manager_base.h"
+#include "DirModelBase.h"
 #include "BookmarkModel.h"
 #include "FileItemData.h"
 
@@ -49,16 +49,18 @@ int main(int argc, char *argv[]) {
     Cmds_exerec::registerCmds_();
     Cmds_app_common::registerCmds();
     Cmds_md_rag::registerCmds();
-    Cmds_file_manager_md::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
     app.setApplicationName("MD RAG Colab");
 
+    static DirModelBase mdDirModelInst;
+    Cmds_file_manager_base::registerSetDir("md_set_dir", mdDirModelInst);
+    Cmds_file_manager_base::registerSetBook("bookmark_set_file", BookmarkModel::inst());
+
 //! @section View
     Q_INIT_RESOURCE(cmd_sys_display);
     Q_INIT_RESOURCE(file_manager_base);
-    Q_INIT_RESOURCE(file_manager_md);
     Q_INIT_RESOURCE(md_rag_colab);
 
     qRegisterMetaType<MdItem>();
@@ -76,7 +78,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("toolControls",       &Model_controlsSettings::inst());
     view->rootContext()->setContextProperty("mainTabs",           new Model_tabs());
     view->rootContext()->setContextProperty("mdModel",            &MdModel::inst());
-    view->rootContext()->setContextProperty("mdDirModel",         &MdDirModel::inst());
+    view->rootContext()->setContextProperty("mdDirModel",         &mdDirModelInst);
     view->rootContext()->setContextProperty("bookmarkModel",      &BookmarkModel::inst());
     view->rootContext()->setContextProperty("configDir",           AppPaths::inst().dirConfig());
 
