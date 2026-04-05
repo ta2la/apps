@@ -57,6 +57,7 @@ int main(int argc, char *argv[]) {
 
 //! @section View
     Q_INIT_RESOURCE(cmd_sys_display);
+    Q_INIT_RESOURCE(file_manager_base);
     Q_INIT_RESOURCE(file_manager_md);
     Q_INIT_RESOURCE(md_rag_colab);
 
