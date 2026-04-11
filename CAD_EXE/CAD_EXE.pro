@@ -42,11 +42,15 @@ DEPLIBS += base:geogebra
 DEPLIBS += base:base:include
 
 
-CONFIG(debug, debug|release): {
-    SOURCEDIR = debug
+wasm {
+    CONFIG(debug, debug|release): SOURCEDIR = debug_wasm
+    else:                         SOURCEDIR = release_wasm
 } else {
-    SOURCEDIR = release
+    CONFIG(debug, debug|release): SOURCEDIR = debug
+    else:                         SOURCEDIR = release
 }
+
+BUILDDIR = $$PWD/../../BUILD
 
 message("======================================")
 
@@ -61,7 +65,7 @@ for (LIBID, DEPLIBS) {
         INCLUDEPATHI = $${INCLUDEPATHI}/$${SUBNAME}
     }
 
-    LIBPATH = "$$PWD/../../$${DIRNAME}/$${LIBNAME}/$${SOURCEDIR}/lib$${LIBNAME}.a"
+    LIBPATH = "$${BUILDDIR}/$${LIBNAME}/$${SOURCEDIR}/lib$${LIBNAME}.a"
 
     INCLUDEPATH += $${INCLUDEPATHI}
     LIBS += $${LIBPATH}
