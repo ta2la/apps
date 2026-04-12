@@ -9,6 +9,10 @@
 !/Resources
 !/Resources/**
 !/md_rag_colab
-!/md_rag_colab/**
-!/config
-!/config/**
+!/md_rag_colab/*.pro
+moc_*
+qrc_*
+*.o
+Makefile
+/debug/
+/release/
