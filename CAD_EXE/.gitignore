@@ -5,3 +5,4 @@
 !.gitignore
 !/resource
 !/resource/**
+/resource/icons_/
