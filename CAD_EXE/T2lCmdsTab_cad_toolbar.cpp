@@ -67,8 +67,7 @@ QString CmdsTab_cad_toolbar::button(const QString& symbol, const QString& cmd)
     if (acmd.isEmpty()) acmd = symbol;
 
     QString result = "TC;CB;cmd: ";
-    result += acmd + ";icon: ";
-    result += StoredFileNames::getExeUpDir() + "/resource/icons/";
+    result += acmd + ";icon: qrc:/cad_icons/resource/icons/";
     result += symbol;
     result += ".png;;";
 
