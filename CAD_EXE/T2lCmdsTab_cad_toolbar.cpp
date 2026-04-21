@@ -97,11 +97,13 @@ int CmdsTab_cad_toolbar::tab_set_toolbar(TcCmdContext* /*context*/, TcArgCol& /*
     result += "TC;CT;text: <space>;;";
     result += "TC;CT;text: copy:;;";
     result += button("copy",              "cmd_object_copy");
+    result += button("copy_rotate",       "cmd_object_rotate_copy");
     result += button("copy_parallel",     "cmd_object_mocopy_parallel");
 
     result += "TC;CT;text: <space>;;";
     result += "TC;CT;text: edit:;;";
     result += button( "edit_move",        "cmd_object_move"          );
+    result += button( "edit_rotate",      "cmd_object_rotate"        );
     result += button( "edit_move_points", "cmd_object_movepoints"    );
     result += button( "edit_trim",        "cmd_object_trim"          );
     result += button( "edit_trimto",      "cmd_object_trimtoother"   );
