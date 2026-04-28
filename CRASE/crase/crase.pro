@@ -8,6 +8,7 @@ SUBDIRS += ../../../base2/cmd_sys
 SUBDIRS += ../../../base2/cmd_sys_display
 SUBDIRS += ../../../base2/utility
 SUBDIRS += ../../../base2/app_common
+SUBDIRS += ../../../base2/crase_drawing
 SUBDIRS += ../../../base2/crase_viewer
 SUBDIRS += ../../../base2/mccp_com
 SUBDIRS += ../../CRASE
@@ -20,5 +21,6 @@ SUBDIRS += ../../CRASE
     ../../../base2/cmd_sys_display \
     ../../../base2/utility \
     ../../../base2/app_common \
+    ../../../base2/crase_drawing \
     ../../../base2/crase_viewer \
     ../../../base2/mccp_com

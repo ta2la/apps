@@ -25,6 +25,7 @@ SOURCES += $$PWD/Main.cpp
 RESOURCES += $$PWD/Resources/crase_app.qrc
 
 T2LS += crase_viewer
+T2LS += crase_drawing
 T2LS += app_common
 T2LS += cmd_sys_display
 T2LS += cmd_sys

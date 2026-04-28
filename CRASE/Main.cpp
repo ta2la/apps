@@ -37,6 +37,7 @@
 #include "CraseRelTypesModel.h"
 #include "CraseRelTypeItem.h"
 #include "Cmds_crase_viewer.h"
+#include "Cmds_crase_drawing.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "AppPaths.h"
@@ -63,6 +64,7 @@ int main(int argc, char *argv[]) {
     Cmds_object_registry_test::registerCmds();
     Cmds_app_common::registerCmds();
     Cmds_crase_viewer::registerCmds();
+    Cmds_crase_drawing::registerCmds();
 
 //! @section Application
     QGuiApplication app(argc, argv);
@@ -73,6 +75,7 @@ int main(int argc, char *argv[]) {
     Q_INIT_RESOURCE(utility);
     Q_INIT_RESOURCE(object_registry_test);
     Q_INIT_RESOURCE(crase_viewer);
+    Q_INIT_RESOURCE(crase_drawing);
     Q_INIT_RESOURCE(crase_app);
 
     qRegisterMetaType<TestModelItem>();
@@ -104,6 +107,7 @@ int main(int argc, char *argv[]) {
     Cmds_crase_viewer::setModel(&craseObjectsModel);
     Cmds_crase_viewer::setTreeModel(&craseTreeModel);
     Cmds_crase_viewer::setDrawingModel(&craseDrawingModel);
+    Cmds_crase_drawing::setDrawingModel(&craseDrawingModel);
     view->rootContext()->setContextProperty("craseObjectsModel",   &craseObjectsModel);
     view->rootContext()->setContextProperty("craseTreeModel",      &craseTreeModel);
     view->rootContext()->setContextProperty("craseDrawingModel",   &craseDrawingModel);
