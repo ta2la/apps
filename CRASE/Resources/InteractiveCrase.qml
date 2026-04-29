@@ -28,6 +28,8 @@ Rectangle {
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls test");}}
             Button { text: "Oreg Test";   height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls oreg_test");}}
+            Button { text: "Mode";        height: parent.selb===text? 32:18;
+                      onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls mode");}}
         }
     }
 

@@ -30,6 +30,11 @@ public:
             m_items.append({ButtonType, "argcol_from_string2",      "argcol_from_string2"});
             m_items.append({ButtonType, "argcol_from_string_alone", "argcol_from_string_alone"});
         }
+        if (content == "mode") {
+            m_items.append({TextType,   "Active mode for selection events:", ""});
+            m_items.append({ButtonType, "voidcmd",      "crase_set_mode voidcmd"});
+            m_items.append({ButtonType, "cmd_mode_box", "crase_set_mode cmd_mode_box"});
+        }
         if (content == "oreg_test") {
             m_items.append({TextType,   "Container: ", ""});
             m_items.append({EditType,   "from to",              "create_model_test $text"});
