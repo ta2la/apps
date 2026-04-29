@@ -39,6 +39,7 @@
 #include "Cmds_crase_viewer.h"
 #include "Cmds_crase_drawing.h"
 #include "CraseMode.h"
+#include "CraseSelection.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "AppPaths.h"
@@ -123,6 +124,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("craseAttrTypesModel",  &craseAttrTypesModel);
     view->rootContext()->setContextProperty("craseRelTypesModel",   &craseRelTypesModel);
     view->rootContext()->setContextProperty("craseMode",            &CraseMode::inst());
+    view->rootContext()->setContextProperty("craseSelection",       &CraseSelection::inst());
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();

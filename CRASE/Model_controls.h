@@ -32,8 +32,10 @@ public:
         }
         if (content == "mode") {
             m_items.append({TextType,   "Active mode for selection events:", ""});
-            m_items.append({ButtonType, "voidcmd",      "crase_set_mode voidcmd"});
-            m_items.append({ButtonType, "cmd_mode_box", "crase_set_mode cmd_mode_box"});
+            m_items.append({ButtonType, "voidcmd",          "crase_set_mode voidcmd"});
+            m_items.append({ButtonType, "cmd_mode_box",     "crase_set_mode cmd_mode_box"});
+            m_items.append({ButtonType, "cmd_mode_tree",    "crase_set_mode cmd_mode_tree"});
+            m_items.append({ButtonType, "cmd_mode_drawing", "crase_set_mode cmd_mode_drawing"});
         }
         if (content == "oreg_test") {
             m_items.append({TextType,   "Container: ", ""});
