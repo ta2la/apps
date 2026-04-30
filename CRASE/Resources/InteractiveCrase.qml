@@ -24,12 +24,10 @@ Rectangle {
             x: 0; y: 10; width: root.width-20;
             Button { text: "Windows";     height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; }}
-            Button { text: "Test Cmd";    height: parent.selb===text? 32:18;
-                      onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls test");}}
-            Button { text: "Oreg Test";   height: parent.selb===text? 32:18;
-                      onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls oreg_test");}}
             Button { text: "Mode";        height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls mode");}}
+            Button { text: "Test Cmd";    height: parent.selb===text? 32:18;
+                      onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls test");}}
         }
     }
 

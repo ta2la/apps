@@ -37,18 +37,6 @@ public:
             m_items.append({ButtonType, "cmd_mode_tree",    "crase_set_mode cmd_mode_tree"});
             m_items.append({ButtonType, "cmd_mode_drawing", "crase_set_mode cmd_mode_drawing"});
         }
-        if (content == "oreg_test") {
-            m_items.append({TextType,   "Container: ", ""});
-            m_items.append({EditType,   "from to",              "create_model_test $text"});
-            m_items.append({TextType,   "Item: ", ""});
-            m_items.append({EditType,   "num num ...",           "create_object_test $text"});
-            m_items.append({TextType,   "Delete: ", ""});
-            m_items.append({EditType,   "id id ...",             "delete_object_test $text"});
-            m_items.append({TextType,   "Edit: ", ""});
-            m_items.append({EditType,   "id val",                "change_object_test $text"});
-            m_items.append({ButtonType, "display_model_col_test", "display_model_col_test"});
-        }
-
         endResetModel();
     }
 };
