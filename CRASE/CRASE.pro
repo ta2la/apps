@@ -24,28 +24,31 @@ SOURCES += $$PWD/Main.cpp
 
 RESOURCES += $$PWD/Resources/crase_app.qrc
 
-T2LS += crase_viewer
-T2LS += crase_drawing
-T2LS += app_common
-T2LS += cmd_sys_display
-T2LS += cmd_sys
-T2LS += utility
-T2LS += object_registry
-T2LS += object_registry_test
-T2LS += mccp_com
-T2LS += base2
+DEPLIBS += app_components:crase_viewer
+DEPLIBS += app_components:crase_drawing
+DEPLIBS += base2:app_common
+DEPLIBS += base2:cmd_sys_display
+DEPLIBS += base2:cmd_sys
+DEPLIBS += base2:utility
+DEPLIBS += base2:object_registry
+DEPLIBS += base2:object_registry_test
+DEPLIBS += base2:mccp_com
+DEPLIBS += base2:base2
 
 defined(BUILDROOT, var): ROOT_LIB_DIR = $$BUILDROOT
 else:                    ROOT_LIB_DIR = $$PWD/../../BUILD
 
-for (T2LSLIB, T2LS) {
+for (LIBID, DEPLIBS) {
+    DIRNAME = $$section(LIBID, :, 0, 0)
+    LIBNAME = $$section(LIBID, :, 1, 1)
+
 win32 {
-    FC_LIB_NAME = $$ROOT_LIB_DIR/$$T2LSLIB/$$SOURCEDIR/$${T2LSLIB}.lib
+    FC_LIB_NAME = $$ROOT_LIB_DIR/$$LIBNAME/$$SOURCEDIR/$${LIBNAME}.lib
 } else {
-       FC_LIB_NAME = $$ROOT_LIB_DIR/$$T2LSLIB/$$SOURCEDIR/lib$${T2LSLIB}.a
+       FC_LIB_NAME = $$ROOT_LIB_DIR/$$LIBNAME/$$SOURCEDIR/lib$${LIBNAME}.a
 }
 
-    INCLUDEPATH    += $$PWD/../../base2/$$T2LSLIB
+    INCLUDEPATH    += $$PWD/../../$$DIRNAME/$$LIBNAME
     LIBS           += $$FC_LIB_NAME
     PRE_TARGETDEPS += $$FC_LIB_NAME
 }
