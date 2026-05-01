@@ -39,6 +39,7 @@ public:
             m_items.append({ButtonType, "cmd_mode_drawing", "crase_set_mode cmd_mode_drawing"});
             m_items.append({ButtonType, "cmd_mode_claude",  "crase_set_mode cmd_mode_claude"});
             m_items.append({ButtonType, "cmd_mode_draw",    "crase_set_mode cmd_mode_draw"});
+            m_items.append({ButtonType, "cmd_mode_undraw",  "crase_set_mode cmd_mode_undraw"});
         }
         endResetModel();
     }

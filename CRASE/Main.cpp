@@ -53,6 +53,7 @@
 #include <QQuickItem>
 #include <QCoreApplication>
 #include <QDir>
+#include <QTimer>
 #include <QFileInfo>
 
 //=============================================================================
@@ -151,6 +152,17 @@ int main(int argc, char *argv[]) {
     if (QFileInfo::exists(script))
         CMD_SYS.execute_threadSafe("execute_script " + script);
     CMD_SYS.execute_threadSafe("voidcmd");
+
+    // startup: wait for layout, then arrange 2x2 grid + load drawing + fit
+    QTimer::singleShot(200, []() {
+        CMD_SYS.execute_threadSafe("set_mdi_window_pct 0  5  5 44 39");    // Interactive
+        CMD_SYS.execute_threadSafe("set_mdi_window_pct 2 51  5 44 39");    // Objects
+        CMD_SYS.execute_threadSafe("set_mdi_window_pct 3  5 46 44 49");    // Tree
+        CMD_SYS.execute_threadSafe("set_mdi_window_pct 4 51 46 44 49");    // Drawing
+        CMD_SYS.execute_threadSafe("crase_draw 179");
+        CMD_SYS.execute_threadSafe("crase_set_mode cmd_mode_tree");
+    });
+    QTimer::singleShot(700, []() { CMD_SYS.execute_threadSafe("zoom_all"); });
 
 //! @section Run
     return app.exec();
