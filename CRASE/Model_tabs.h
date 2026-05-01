@@ -18,6 +18,7 @@ public:
         items_.append(Item{ "Tree",        "qrc:/TabObjectTree.qml",    "\xF0\x9F\x8C\xB3" });
         items_.append(Item{ "Drawing",     "qrc:/TabDrawing.qml",       "\xF0\x9F\x93\x90" });
         items_.append(Item{ "Metadata",    "qrc:/TabMetadata.qml",      "\xF0\x9F\x93\x8B" });
+        items_.append(Item{ "Claude",      "qrc:/TabClaude.qml",        "\xE2\x9C\xB4\xEF\xB8\x8F" });
         items_.append(Item{ "About",       "qrc:/About.qml",            "\u24D8" });
     }
 
