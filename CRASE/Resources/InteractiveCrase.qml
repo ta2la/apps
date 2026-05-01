@@ -26,6 +26,8 @@ Rectangle {
                       onClicked: { parent.selb = text; }}
             Button { text: "Mode";        height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls mode");}}
+            Button { text: "Utility";     height: parent.selb===text? 32:18;
+                      onClicked: { parent.selb = text; }}
             Button { text: "Test Cmd";    height: parent.selb===text? 32:18;
                       onClicked: { parent.selb = text; qmlInterface.callCmd("change_controls test");}}
         }
@@ -69,24 +71,39 @@ Rectangle {
         Rectangle {
             anchors.bottom: parent.bottom; anchors.bottomMargin: 5
             x: 5
-            width: 160; height: 30; radius: 2; color: "#708090"
-            Text { anchors.centerIn: parent; text: "Save Screen Position"; font.pointSize: 10; color: "#fff" }
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked: qmlInterface.callCmd("save_window_position")
-            }
-        }
-
-        Rectangle {
-            anchors.bottom: parent.bottom; anchors.bottomMargin: 5
-            x: 170
             width: 140; height: 30; radius: 2; color: "#708090"
             Text { anchors.centerIn: parent; text: "Reload Db View"; font.pointSize: 10; color: "#fff" }
             MouseArea {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: qmlInterface.callCmd("reload_view")
+            }
+        }
+    }
+
+    // Utility area
+    Rectangle {
+        id: utilityArea
+        x: 10; y: 44
+        width: parent.width-20
+        height: (parent.height - 54) * 0.66
+        color: "#D8DDE8"
+        clip: true
+        visible: tabBar.children[0].selb === "Utility"
+
+        Flow {
+            x: 5; y: 5
+            width: parent.width - 10
+            spacing: 5
+
+            Rectangle {
+                width: 160; height: 30; radius: 2; color: "#708090"
+                Text { anchors.centerIn: parent; text: "Save Screen Position"; font.pointSize: 10; color: "#fff" }
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: qmlInterface.callCmd("save_window_position")
+                }
             }
         }
     }
@@ -99,7 +116,7 @@ Rectangle {
         height: (parent.height - 54) * 0.66
         color: "#CAD7E8"
         clip: true
-        visible: tabBar.children[0].selb !== "Windows"
+        visible: tabBar.children[0].selb !== "Windows" && tabBar.children[0].selb !== "Utility"
 
         Flickable {
             anchors.fill: parent
