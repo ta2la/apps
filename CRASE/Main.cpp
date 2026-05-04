@@ -41,6 +41,7 @@
 #include "CraseMode.h"
 #include "CraseSelection.h"
 #include "ClaudeOutput.h"
+#include "ObjectRaw.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "AppPaths.h"
@@ -128,6 +129,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("craseMode",            &CraseMode::inst());
     view->rootContext()->setContextProperty("craseSelection",       &CraseSelection::inst());
     view->rootContext()->setContextProperty("claudeOutput",         &ClaudeOutput::inst());
+    view->rootContext()->setContextProperty("objectRaw",            &ObjectRaw::inst());
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
