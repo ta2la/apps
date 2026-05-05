@@ -42,6 +42,7 @@ public:
             m_items.append({ButtonType, "cmd_mode_undraw",  "crase_set_mode cmd_mode_undraw"});
             m_items.append({ButtonType, "cmd_mode_filter",  "crase_set_mode cmd_mode_filter"});
             m_items.append({ButtonType, "cmd_mode_raw",     "crase_set_mode cmd_mode_raw"});
+            m_items.append({ButtonType, "cmd_mode_delete",  "crase_set_mode cmd_mode_delete"});
         }
         endResetModel();
     }

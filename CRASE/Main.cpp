@@ -42,6 +42,7 @@
 #include "CraseSelection.h"
 #include "ClaudeOutput.h"
 #include "ObjectRaw.h"
+#include "DbProfiles.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "AppPaths.h"
@@ -74,6 +75,7 @@ int main(int argc, char *argv[]) {
 //! @section Application
     QGuiApplication app(argc, argv);
     app.setApplicationName("Crase");
+    StdinMonitor::init();  // create singleton early; lazy creation in aboutToQuit crashes
 
 //! @section View
     Q_INIT_RESOURCE(cmd_sys_display);
@@ -120,9 +122,9 @@ int main(int argc, char *argv[]) {
     static CraseTypesModel craseTypesModel;
     static CraseAttrTypesModel craseAttrTypesModel;
     static CraseRelTypesModel craseRelTypesModel;
-    craseTypesModel.load();
-    craseAttrTypesModel.load();
-    craseRelTypesModel.load();
+    Cmds_crase_viewer::setTypesModel(&craseTypesModel);
+    Cmds_crase_viewer::setAttrTypesModel(&craseAttrTypesModel);
+    Cmds_crase_viewer::setRelTypesModel(&craseRelTypesModel);
     view->rootContext()->setContextProperty("craseTypesModel",      &craseTypesModel);
     view->rootContext()->setContextProperty("craseAttrTypesModel",  &craseAttrTypesModel);
     view->rootContext()->setContextProperty("craseRelTypesModel",   &craseRelTypesModel);
@@ -130,6 +132,7 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("craseSelection",       &CraseSelection::inst());
     view->rootContext()->setContextProperty("claudeOutput",         &ClaudeOutput::inst());
     view->rootContext()->setContextProperty("objectRaw",            &ObjectRaw::inst());
+    view->rootContext()->setContextProperty("dbProfiles",           &DbProfiles::inst());
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
@@ -144,10 +147,10 @@ int main(int argc, char *argv[]) {
     view->show();
 
     QObject::connect(&app, &QGuiApplication::aboutToQuit, []() {
-        StdinMonitor::init().requestInterruption();
+        auto& mon = StdinMonitor::init();
+        mon.requestInterruption();
         fclose(stdin);
-        StdinMonitor::init().wait(1000);
-        QCoreApplication::quit();
+        mon.wait(1000);
     });
 
     QString script = QDir::cleanPath(AppPaths::inst().dirConfig() + "/config.t2l");
