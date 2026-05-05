@@ -43,6 +43,7 @@
 #include "ClaudeOutput.h"
 #include "ObjectRaw.h"
 #include "DbProfiles.h"
+#include "AttrBinaryImageProvider.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
 #include "AppPaths.h"
@@ -98,6 +99,7 @@ int main(int argc, char *argv[]) {
     AppStyle::inst().setIcon("\xF0\x9F\x8C\x80");
 
     QQuickView* view = new QQuickView();
+    view->engine()->addImageProvider("binary", new AttrBinaryImageProvider());
     view->rootContext()->setContextProperty("appStyle", &AppStyle::inst());
 
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
