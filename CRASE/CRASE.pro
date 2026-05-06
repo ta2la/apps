@@ -26,6 +26,7 @@ RESOURCES += $$PWD/Resources/crase_app.qrc
 
 DEPLIBS += app_components:crase_viewer
 DEPLIBS += app_components:crase_drawing
+DEPLIBS += app_components:crase_db
 DEPLIBS += base2:app_common
 DEPLIBS += base2:cmd_sys_display
 DEPLIBS += base2:cmd_sys
