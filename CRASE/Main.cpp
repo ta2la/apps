@@ -155,9 +155,15 @@ int main(int argc, char *argv[]) {
         mon.wait(1000);
     });
 
+#ifdef Q_OS_WASM
+    // WASM: config.t2l is not in MEMFS; hardcode the SQLite setup so the
+    // app comes up with /tanks.db (preloaded by emcc --preload-file).
+    CMD_SYS.execute_threadSafe("db_connect --name tanks_sqlite --driver sqlite --path /tanks.db --active");
+#else
     QString script = QDir::cleanPath(AppPaths::inst().dirConfig() + "/config.t2l");
     if (QFileInfo::exists(script))
         CMD_SYS.execute_threadSafe("execute_script " + script);
+#endif
     CMD_SYS.execute_threadSafe("voidcmd");
 
     // startup: wait for layout, then arrange 2x2 grid + load drawing + fit

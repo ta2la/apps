@@ -4,10 +4,12 @@ CONFIG += c++17
 CONFIG += console
 #######################################################################################
 
-CONFIG(debug, debug|release): {
-    SOURCEDIR = debug
+wasm {
+    CONFIG(debug, debug|release): SOURCEDIR = debug_wasm
+    else:                         SOURCEDIR = release_wasm
 } else {
-    SOURCEDIR = release
+    CONFIG(debug, debug|release): SOURCEDIR = debug
+    else:                         SOURCEDIR = release
 }
 
 DESTDIR = $$PWD/$$SOURCEDIR
@@ -62,3 +64,7 @@ QT += quickwidgets
 QT += quickcontrols2
 QT += websockets
 QT += sql
+QT += network
+
+# WASM: bundle SQLite db into the wasm package (MEMFS path: /tanks.db)
+wasm: QMAKE_LFLAGS += --preload-file $$PWD/config/tanks.db@/tanks.db
