@@ -44,6 +44,7 @@
 #include "ObjectRaw.h"
 #include "DbProfiles.h"
 #include "CraseEmFs.h"
+#include "CraseBootstrap.h"
 #include "AttrBinaryImageProvider.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
@@ -136,6 +137,8 @@ int main(int argc, char *argv[]) {
     view->rootContext()->setContextProperty("claudeOutput",         &ClaudeOutput::inst());
     view->rootContext()->setContextProperty("objectRaw",            &ObjectRaw::inst());
     view->rootContext()->setContextProperty("dbProfiles",           &DbProfiles::inst());
+    view->rootContext()->setContextProperty("craseBootstrap",       &CraseBootstrap::inst());
+    view->rootContext()->setContextProperty("bootOverlaySource",    QUrl("qrc:/CraseBootBlocker.qml"));
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();

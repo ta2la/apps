@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file alias="Interactive.qml">InteractiveCrase.qml</file>
+        <file alias="CraseBootBlocker.qml">CraseBootBlocker.qml</file>
     </qresource>
 </RCC>

@@ -21,6 +21,7 @@ HEADERS += $$PWD/Model_controls.h
 HEADERS += $$PWD/Cmds_ui_model_refresh.h
 HEADERS += $$PWD/UiControl.h
 HEADERS += $$PWD/Model_toolControls.h
+HEADERS += $$PWD/CraseBootstrap.h
 
 SOURCES += $$PWD/Main.cpp
 
