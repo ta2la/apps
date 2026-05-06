@@ -43,6 +43,7 @@
 #include "ClaudeOutput.h"
 #include "ObjectRaw.h"
 #include "DbProfiles.h"
+#include "CraseEmFs.h"
 #include "AttrBinaryImageProvider.h"
 #include "CmdExeRecCol.h"
 #include "ExerecModelProxy.h"
@@ -156,9 +157,9 @@ int main(int argc, char *argv[]) {
     });
 
 #ifdef Q_OS_WASM
-    // WASM: config.t2l is not in MEMFS; hardcode the SQLite setup so the
-    // app comes up with /tanks.db (preloaded by emcc --preload-file).
-    CMD_SYS.execute_threadSafe("db_connect --name tanks_sqlite --driver sqlite --path /tanks.db --active");
+    // WASM: showDirectoryPicker requires a user gesture, so the bootstrap
+    // (pickDir → download tanks.db → db_connect) must be triggered from a
+    // QML button — see cmd "wasm_pick_dir" registered in Cmds_crase_viewer.
 #else
     QString script = QDir::cleanPath(AppPaths::inst().dirConfig() + "/config.t2l");
     if (QFileInfo::exists(script))

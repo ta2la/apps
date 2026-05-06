@@ -66,5 +66,4 @@ QT += websockets
 QT += sql
 QT += network
 
-# WASM: bundle SQLite db into the wasm package (MEMFS path: /tanks.db)
-wasm: QMAKE_LFLAGS += --preload-file $$PWD/config/tanks.db@/tanks.db
+# WASM: tanks.db is fetched from URL at startup (Main.cpp), no preload bundling.

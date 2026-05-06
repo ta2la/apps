@@ -79,6 +79,18 @@ Rectangle {
                 onClicked: qmlInterface.callCmd("reload_view")
             }
         }
+
+        Rectangle {
+            anchors.bottom: parent.bottom; anchors.bottomMargin: 5
+            x: 155
+            width: 180; height: 30; radius: 2; color: "#406090"
+            Text { anchors.centerIn: parent; text: "Pick dir + load DB (WASM)"; font.pointSize: 9; color: "#fff" }
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: qmlInterface.callCmd("wasm_pick_dir")
+            }
+        }
     }
 
     // Utility area
