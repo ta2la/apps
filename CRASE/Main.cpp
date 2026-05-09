@@ -19,8 +19,7 @@
 #include "TestModelItem.h"
 #include "Model_tabs.h"
 #include "StdoutCmdOutput.h"
-#include "WsServerLite.h"
-#include "WsServerLiteGuard.h"
+#include "CmdBridge.h"
 //#include "PreviewModel.h"
 #include "Cmds_app_common.h"
 #include "AppStyle.h"
@@ -142,7 +141,7 @@ int main(int argc, char *argv[]) {
 
     CmdExeRecCol::inst();
     StdoutCmdOutput::inst();
-    WsServerLiteGuard::inst();
+    CmdBridge::init();
 
     view->setSource(QUrl("qrc:/GenericApp.qml"));
     UiControl::inst().setRootObject(view->rootObject());

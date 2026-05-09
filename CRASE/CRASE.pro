@@ -7,6 +7,8 @@ CONFIG += console
 wasm {
     CONFIG(debug, debug|release): SOURCEDIR = debug_wasm
     else:                         SOURCEDIR = release_wasm
+    # Required by CmdBridge REPL (Module.ccall to dispatch craseExec from JS).
+    QT_WASM_EXTRA_EXPORTED_METHODS = ccall,cwrap
 } else {
     CONFIG(debug, debug|release): SOURCEDIR = debug
     else:                         SOURCEDIR = release
