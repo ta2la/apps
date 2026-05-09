@@ -80,8 +80,8 @@ public:
         if (fileName.isEmpty()) fileName = "downloaded.db";
         status_ = "downloading"; emit changed();
         CraseEmFs::downloadUrlBinary(url, fileName);
-        startPoll([this, fileName](int s) {
-            if (s == 1) connectSqlite(fileName);
+        startPoll([this](int s) {
+            if (s == 1) connectSqlite(CraseEmFs::lastDownloadName());
             else { status_ = "download-error"; emit changed(); }
         }, []{ return CraseEmFs::downloadStatus(); });
     }

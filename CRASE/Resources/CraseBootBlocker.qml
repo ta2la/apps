@@ -30,8 +30,8 @@ Rectangle {
     Rectangle {
         id: dialog
         anchors.centerIn: parent
-        width: 520
-        height: 360
+        width: parent.width * 2 / 3
+        height: parent.height * 2 / 3
         radius: 8
         color: "#F0F0F0"
         border.color: "#A0A8B0"; border.width: 1
@@ -49,7 +49,7 @@ Rectangle {
                 if (s === "loading")      return "Loading…"
                 return "Bootstrap"
             }
-            font.pointSize: 14; font.bold: true; color: "#404040"
+            font.pointSize: 21; font.bold: true; color: "#808080"
         }
         Text {
             anchors.top: title.bottom; anchors.topMargin: 4
@@ -63,23 +63,47 @@ Rectangle {
                     return "Something failed. Try again."
                 return ""
             }
-            font.pointSize: 9; color: "#707070"
+            font.pointSize: 14; color: "#707070"
         }
 
         // ── State A: pick directory ──
-        Rectangle {
-            id: pickBtn
+        Column {
             visible: ["idle","picking","pick-error"].indexOf(craseBootstrap.status) >= 0
             anchors.centerIn: parent
-            width: 240; height: 44; radius: 4
-            color: pickMa.containsMouse ? "#506FAA" : "#406090"
-            opacity: craseBootstrap.status === "picking" ? 0.6 : 1
-            Text { anchors.centerIn: parent; text: craseBootstrap.status === "picking" ? "Picking…" : "Pick directory"; font.pointSize: 12; font.bold: true; color: "#fff" }
-            MouseArea {
-                id: pickMa; anchors.fill: parent; hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                enabled: craseBootstrap.status !== "picking"
-                onClicked: craseBootstrap.pickDir()
+            spacing: 18
+            Rectangle {
+                id: pickBtn
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 240; height: 44; radius: 4
+                color: pickMa.containsMouse ? "#506FAA" : "#406090"
+                opacity: craseBootstrap.status === "picking" ? 0.6 : 1
+                Text { anchors.centerIn: parent; text: craseBootstrap.status === "picking" ? "Picking…" : "Pick directory"; font.pointSize: 12; font.bold: true; color: "#fff" }
+                MouseArea {
+                    id: pickMa; anchors.fill: parent; hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    enabled: craseBootstrap.status !== "picking"
+                    onClicked: craseBootstrap.pickDir()
+                }
+            }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.parent.width * 0.8
+                wrapMode: Text.WordWrap
+                textFormat: Text.RichText
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 14
+                color: "#555555"
+                text: appText.pickDirNotes
+            }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.parent.width * 0.8
+                wrapMode: Text.WordWrap
+                textFormat: Text.RichText
+                horizontalAlignment: Text.AlignHCenter
+                font.pointSize: 18
+                color: "#555555"
+                text: appText.pickDirNoWarranty
             }
         }
 

@@ -23,6 +23,7 @@
 //#include "PreviewModel.h"
 #include "Cmds_app_common.h"
 #include "AppStyle.h"
+#include "AppText.h"
 #include "CraseObjectsBySqlModel.h"
 #include "CraseObject.h"
 #include "CraseTreeModel.h"
@@ -52,6 +53,7 @@
 
 //! @section Qt
 #include <QGuiApplication>
+#include <QScreen>
 #include <QQuickView>
 #include <QQmlContext>
 #include <QQuickItem>
@@ -102,6 +104,7 @@ int main(int argc, char *argv[]) {
     QQuickView* view = new QQuickView();
     view->engine()->addImageProvider("binary", new AttrBinaryImageProvider());
     view->rootContext()->setContextProperty("appStyle", &AppStyle::inst());
+    view->rootContext()->setContextProperty("appText",  &AppText::inst());
 
     view->rootContext()->setContextProperty("qmlInterface",       &UiControl::inst());
     view->rootContext()->setContextProperty("exerecModelProxy",   &ExerecModelProxy::inst());
@@ -148,7 +151,8 @@ int main(int argc, char *argv[]) {
     Cmds_app_common::setRootItem(view->rootObject());
 
     view->setResizeMode(QQuickView::SizeRootObjectToView);
-    view->resize(1200, 800);
+    QSize avail = QGuiApplication::primaryScreen()->availableSize();
+    view->resize(avail.width() * 2 / 3, avail.height() * 2 / 3);
     view->show();
 
     QObject::connect(&app, &QGuiApplication::aboutToQuit, []() {
