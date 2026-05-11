@@ -1,3 +1,5 @@
+# repo-visibility: public
+# CLAUDE.md not tracked here — private content (lives only in private repos)
 *
 !.gitignore
 !/PROMPT_ASSEMBLER
@@ -16,3 +18,6 @@
 !/docs/PROMPT_ASSEMBLER/002_example/
 !/docs/PROMPT_ASSEMBLER/002_example/*.*
 
+
+# CLAUDE*.md never tracked here — risk of accidental secrets/access notes; lives only in the CLAUDE repo
+CLAUDE*.md
