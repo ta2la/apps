@@ -50,6 +50,7 @@
 #include "T2lCadObject_dimm.h"
 #include "T2lCadObject_papper.h"
 #include "T2lCmds_cad.h"
+#include "T2lCmd_selected_2svg.h"
 #include "T2lCmds_cad_exe.h"
 #include "T2lCmdsTab_about.h"
 #include "T2lCmdsTab_cad_toolbar.h"
@@ -93,6 +94,7 @@ int main(int argc, char *argv[]) {
     CmdsTab_cad::registerCmds_();
     CmdsTab_cad_toolbar::registerCmds_();
     Cmds_cad::registerCmds_();
+    Cmd_selected_2svg::registerCmds_();
     Cmds_cad_exe::registerCmds_();
     Cmds_cadPro::registerCmds_();
     Cmds_cadSettings();

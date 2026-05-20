@@ -117,6 +117,7 @@ int CmdsTab_cad_toolbar::tab_set_toolbar(TcCmdContext* /*context*/, TcArgCol& /*
     result += "TC;CT;text: <space>;;";
     result += "TC;CT;text: info:;;";
     result += button("info_measure", "cmd_cad_measure");
+    result += button("selected_2svg", "cmd_selected_2svg");
 
     result += "TC;CT;text: <space>;;";
     result += "TC;CT;text: view:;;";
