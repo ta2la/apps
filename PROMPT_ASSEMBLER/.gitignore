@@ -13,6 +13,3 @@
 
 moc_*.*
 qrc_*.*
-
-# CLAUDE notes — never tracked (override parent !*.md)
-CLAUDE*.md
